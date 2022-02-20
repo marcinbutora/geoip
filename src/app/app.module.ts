@@ -8,6 +8,7 @@ import {CommonModule} from "@angular/common";
 import {IpInfoComponent} from "./pages/ip/ip-info/ip-info.component";
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './layout/home/home.component';
+import {IpModule} from "./pages/ip/ip.module";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './layout/home/home.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    IpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

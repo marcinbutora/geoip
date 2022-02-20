@@ -1,12 +1,3 @@
 <div id="map" class="full"></div>
-<div class="details">
-  <p><b><img src="https://flagcdn.com/16x12/{{flagReplace}}.png" alt="Flag"> {{data?.country_name}}</b>
-    <br>Capital: {{data?.country_capital}}
-    <br>Region: {{data?.region}}
-    <br>Currency: {{data?.currency_name}} ({{data?.currency}})
-    <br>ISP provider: {{data?.org}}
-    <br>IP address: {{data?.ip}}
-    <br>GPS: {{data?.latitude}}, {{data?.longitude}}
-  </p>
-</div>
+<app-details [data]="data"></app-details>
 <app-footer></app-footer>
