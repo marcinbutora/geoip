@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IP} from "../ip-model/ip";
 import {IpDataService} from "../ip-data.service";
 import {ActivatedRoute} from "@angular/router";
@@ -11,10 +11,10 @@ import {Map, Marker, Popup} from 'mapbox-gl';
   styleUrls: ['./ip-info.component.scss']
 })
 export class IpInfoComponent implements OnInit {
-  data!: IP;
-  ip: string = '';
+  @Input() data: IP | undefined;
+  @Input() ip: string = '';
   lat!: number;
-  lon!: number;
+  flagReplace: string = '';
 
   constructor(private ipService: IpDataService, private route: ActivatedRoute) {
   }
@@ -23,12 +23,11 @@ export class IpInfoComponent implements OnInit {
     this.ip = this.route.snapshot.params['ip'];
     this.ipService.getDataByIP(this.ip).subscribe((data) => {
       this.data = data;
-      this.lat = data.latitude;
-      this.lon = data.longitude;
 
       const map = this.displayMap(data);
       this.addMarkerToMap(data, map);
       this.addPopupToMarker(data, map);
+      this.flagReplace = data.country_tld.replace(".", "");
     })
   }
 
@@ -39,16 +38,8 @@ export class IpInfoComponent implements OnInit {
   }
 
   private addPopupToMarker(data: IP, map: mapboxgl.Map) {
-    const flagReplace = data.country_tld.replace(".", "");
     this.ipService.popup = new Popup()
       .setLngLat([data.longitude, data.latitude])
-      .setHTML(
-      `<p><b><img src="https://flagcdn.com/16x12/${flagReplace}.png"> ${data.country_name}</b>
-        <br>Capital: ${data.country_capital}
-        <br>${data.city}
-        <br>IP address: ${data.ip}
-        <br>GPS: ${data.latitude}, ${data.longitude}
-       </p>`)
       .addTo(map)
   }
 
