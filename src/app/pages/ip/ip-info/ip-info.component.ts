@@ -23,31 +23,31 @@ export class IpInfoComponent implements OnInit {
     this.ip = this.route.snapshot.params['ip'];
     this.ipService.getDataByIP(this.ip).subscribe((data) => {
       this.data = data;
-      this.lat = data.lon;
-      this.lon = data.lon;
+      this.lat = data.latitude;
+      this.lon = data.longitude;
 
       const map = this.displayMap(data);
       this.addMarkerToMap(data, map);
       this.addPopupToMarker(data, map);
-      this.ipService.map.addControl(new mapboxgl.NavigationControl());
     })
   }
 
   private addMarkerToMap(data: IP, map: mapboxgl.Map) {
     this.ipService.marker = new Marker()
-      .setLngLat([data.lon, data.lat])
+      .setLngLat([data.longitude, data.latitude])
       .addTo(map)
   }
 
   private addPopupToMarker(data: IP, map: mapboxgl.Map) {
+    const flagReplace = data.country_tld.replace(".", "");
     this.ipService.popup = new Popup()
-      .setLngLat([data.lon, data.lat])
+      .setLngLat([data.longitude, data.latitude])
       .setHTML(
-      `<p><b>${data.country}</b>
+      `<p><b><img src="https://flagcdn.com/16x12/${flagReplace}.png"> ${data.country_name}</b>
+        <br>Capital: ${data.country_capital}
         <br>${data.city}
-        <br>${data.isp}
-        <br>IP address: ${data.query}
-        <br>GPS: ${data.lat}, ${data.lon}
+        <br>IP address: ${data.ip}
+        <br>GPS: ${data.latitude}, ${data.longitude}
        </p>`)
       .addTo(map)
   }
@@ -57,7 +57,7 @@ export class IpInfoComponent implements OnInit {
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
       zoom: 12,
-      center: [data.lon, data.lat]
+      center: [data.longitude, data.latitude]
     });
   }
 }
