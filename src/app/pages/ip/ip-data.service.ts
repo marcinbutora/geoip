@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {IP} from "./ip-model/ip";
 import * as mapboxgl from "mapbox-gl";
 import {Map, Marker, Popup} from "mapbox-gl";
+import {IpClient} from "./ip-model/ipclient";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,7 @@ export class IpDataService {
   marker!: mapboxgl.Marker;
   popup!: mapboxgl.Popup;
   apiUrl: string = 'https://ipapi.co/';
+  apiClient: string = 'https://api.ipify.org/?format=json';
 
   constructor(private http: HttpClient) {
     (mapboxgl as any).accessToken = 'pk.eyJ1IjoibWI4M3BsIiwiYSI6ImNrenU2dmZqYzFhbmgybm9odWR3MW1zbGEifQ.FkK9NeB26U89mDa1q_DQkQ';
@@ -22,6 +23,10 @@ export class IpDataService {
 
   getDataByIP = (ip: string): Observable<IP> => {
     return this.http.get<IP>(`${this.apiUrl}${ip}/json/`)
+  }
+
+  getClientIP = (): Observable<IpClient> => {
+    return this.http.get<IpClient>(`${this.apiClient}`)
   }
 
   addMarkerToMap(data: IP, map: mapboxgl.Map) {
