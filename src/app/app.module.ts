@@ -6,11 +6,13 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
 import {IpInfoComponent} from "./pages/ip/ip-info/ip-info.component";
+import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IpInfoComponent
+    IpInfoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
