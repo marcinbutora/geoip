@@ -35,12 +35,6 @@ export class IpDataService {
       .addTo(map)
   }
 
-  addPopupToMarker(data: IP, map: mapboxgl.Map) {
-    this.popup = new Popup()
-      .setLngLat([data.longitude, data.latitude])
-      .addTo(map)
-  }
-
   displayMap(data: IP) {
     return new Map({
       container: 'map',
