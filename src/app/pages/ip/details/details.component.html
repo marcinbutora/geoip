@@ -1,15 +1,15 @@
 <div class="background">
   <div class="details">
     <p>
-      <br><span class="ipAddress">{{data?.ip}}</span>
-    <span class="infoDetails">
-      <br><b>{{data?.country_name}}</b>
-      <br>Capital: {{data?.country_capital}}
-      <br>Region: {{data?.region}}
-      <br>Currency: {{data?.currency_name}} ({{data?.currency}})
-      <br>ISP provider: {{data?.org}}
-      <br>GPS: {{data?.latitude}}, {{data?.longitude}}
-    </span>
+      <br><span class="ipAddress"><img src="https://flagcdn.com/32x24/{{data?.country_tld?.replace('.', '')}}.png" alt="{{data?.country_name}} Flag">&nbsp;{{data?.ip}}</span>
+        <span class="infoDetails">
+          <br><b>{{data?.country_name}}</b>
+          <br>Capital: {{data?.country_capital}}
+          <br>Region: {{data?.region}}
+          <br>Currency: {{data?.currency_name}} ({{data?.currency}})
+          <br>ISP provider: {{data?.org}}
+          <br>GPS: {{data?.latitude}}, {{data?.longitude}}
+        </span>
     </p>
   </div>
 </div>
