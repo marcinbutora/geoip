@@ -1,7 +1,6 @@
 .details {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   position: absolute;
   top: 1rem;
   left: 50%;
@@ -18,29 +17,11 @@
   text-align: center;
 }
 
-.ipAddress {
+.ip-address {
   font-size: 2rem;
   color: navy;
   font-weight: bolder;
-}
-
-.infoDetails {
-  margin-top: 1rem;
-}
-
-@media screen and (max-width: 640px) {
-  .infoDetails {
-    line-height: 1rem;
-    margin-top: 1rem;
-  }
-
-  .details img {
-    margin-bottom: 0.5rem;
-  }
-
-  .ipAddress {
-    font-size: 1.5rem;
-  }
+  padding: 0.5rem 0rem 1rem 0rem;
 }
 
 

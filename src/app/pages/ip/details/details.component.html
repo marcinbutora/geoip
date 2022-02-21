@@ -1,15 +1,26 @@
-<div class="background">
-  <div class="details">
-    <p>
-      <br><span class="ipAddress"><img src="https://flagcdn.com/32x24/{{data?.country_tld?.replace('.', '')}}.png" alt="{{data?.country_name}} Flag">&nbsp;{{data?.ip}}</span>
-        <span class="infoDetails">
-          <br><b>{{data?.country_name}}</b>
-          <br>Capital: {{data?.country_capital}}
-          <br>Region: {{data?.region}}
-          <br>Currency: {{data?.currency_name}} ({{data?.currency}})
-          <br>ISP provider: {{data?.org}}
-          <br>GPS: {{data?.latitude}}, {{data?.longitude}}
-        </span>
-    </p>
+<div class="details">
+  <div class="country-flag">
+    <img src="https://flagcdn.com/40x30/{{data?.country_tld?.replace('.', '')}}.png" alt="{{data?.country_name}} Flag">
+  </div>
+  <div class="ip-address">
+    {{data?.ip}}
+  </div>
+  <div class="country-name">
+    <b>{{data?.country_name}}</b>
+  </div>
+  <div class="capital">
+    Capital: {{data?.country_capital}}
+  </div>
+  <div class="region">
+    Region: {{data?.region}}
+  </div>
+  <div class="currency">
+    Currency: {{data?.currency_name}} ({{data?.currency}})
+  </div>
+  <div class="provider">
+    ISP provider: {{data?.org}}
+  </div>
+  <div class="gps">
+    GPS: {{data?.latitude}}, {{data?.longitude}}
   </div>
 </div>
