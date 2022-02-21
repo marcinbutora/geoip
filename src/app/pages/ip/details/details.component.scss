@@ -7,7 +7,8 @@
   left: 50%;
   transform: translate(-50%);
   z-index: 10;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
+  line-height: 1.2rem;
   border-radius: 1rem;
   font-family: Arial, serif;
   font-size: 0.9rem;
@@ -15,5 +16,15 @@
   background-color: white;
   width: 50%;
   text-align: center;
+}
+
+.ipAddress {
+  font-size: 2rem;
+  color: navy;
+  font-weight: bolder;
+}
+
+.infoDetails {
+  margin-top: 1rem;
 }
 
