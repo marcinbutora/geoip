@@ -11,6 +11,7 @@ import {HomeComponent} from './layout/home/home.component';
 import {IpModule} from "./pages/ip/ip.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from "@angular/material/card";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {MatCardModule} from "@angular/material/card";
     CommonModule,
     IpModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatToolbarModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

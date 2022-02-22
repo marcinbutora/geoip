@@ -1,15 +1,15 @@
 footer {
-  max-width: 400px;
   position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translate(-50%);
+  bottom: 0;
   z-index: 10;
-  line-height: 1.2rem;
-  width: 50%;
+  width: 100vw;
 }
 
-.avatar {
-  background-image: url("https://avatars.githubusercontent.com/u/36995841?s=400&u=4e732e35b2a68533e22d4963b69c526e8bff1a5f&v=4");
-  background-size: cover;
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
