@@ -9,6 +9,7 @@ import {IpInfoComponent} from "./pages/ip/ip-info/ip-info.component";
 import {FooterComponent} from './layout/footer/footer.component';
 import {HomeComponent} from './layout/home/home.component';
 import {IpModule} from "./pages/ip/ip.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {IpModule} from "./pages/ip/ip.module";
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    IpModule
+    IpModule,
+    BrowserAnimationsModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

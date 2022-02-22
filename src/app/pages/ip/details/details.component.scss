@@ -1,27 +1,44 @@
-.details {
-  display: flex;
-  flex-direction: column;
+//.details {
+//  display: flex;
+//  flex-direction: column;
+//  position: absolute;
+//  top: 1rem;
+//  left: 50%;
+//  transform: translate(-50%);
+//  z-index: 10;
+//  padding: 0.5rem 2rem;
+//  line-height: 1.2rem;
+//  border-radius: 1rem;
+//  font-family: Arial, serif;
+//  font-size: 0.9rem;
+//  box-shadow: 1px 2px #000;
+//  background-color: white;
+//  width: 50%;
+//  text-align: center;
+//}
+//
+//.ip-address {
+//  font-size: 2rem;
+//  color: navy;
+//  font-weight: bolder;
+//  padding: 0.5rem 0rem 1rem 0rem;
+//}
+
+.ip-card {
+  max-width: 400px;
   position: absolute;
   top: 1rem;
   left: 50%;
   transform: translate(-50%);
   z-index: 10;
-  padding: 0.5rem 2rem;
   line-height: 1.2rem;
-  border-radius: 1rem;
-  font-family: Arial, serif;
-  font-size: 0.9rem;
-  box-shadow: 1px 2px #000;
-  background-color: white;
   width: 50%;
-  text-align: center;
 }
 
-.ip-address {
-  font-size: 2rem;
-  color: navy;
-  font-weight: bolder;
-  padding: 0.5rem 0rem 1rem 0rem;
+.ip-card-image {
+  background-image: url("https://flagcdn.com/40x30/{{data?.country_tld?.replace('.', '')}}.png");
+  background-size: cover;
 }
+
 
 
