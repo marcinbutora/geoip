@@ -10,6 +10,7 @@ import {FooterComponent} from './layout/footer/footer.component';
 import {HomeComponent} from './layout/home/home.component';
 import {IpModule} from "./pages/ip/ip.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     CommonModule,
     IpModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

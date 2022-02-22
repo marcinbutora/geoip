@@ -35,10 +35,5 @@
   width: 50%;
 }
 
-.ip-card-image {
-  background-image: url("https://flagcdn.com/40x30/{{data?.country_tld?.replace('.', '')}}.png");
-  background-size: cover;
-}
-
 
 
