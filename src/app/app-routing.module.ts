@@ -6,9 +6,9 @@ import {IpClientComponent} from "./pages/ip/ip-client/ip-client.component";
 
 const routes: Routes = [
   {path: 'ip/:ip', component: IpInfoComponent},
-  {path: 'home', component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'ip', component: IpClientComponent},
-  {path: '', pathMatch: 'full', redirectTo: '/ip'},
+  {path: '', pathMatch: 'full', redirectTo: '/'},
   {path: '**', redirectTo: '/ip'}
 ];
 

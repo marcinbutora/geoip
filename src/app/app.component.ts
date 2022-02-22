@@ -6,5 +6,8 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'geoip';
+  links = [
+    {path: '/', title: 'Home'},
+    {path: '/ip', title: 'Check Your IP'}
+  ]
 }

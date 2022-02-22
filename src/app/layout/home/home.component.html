@@ -1,4 +1,7 @@
-<form action="/ip" method="get">
-  <input type="text" name="ip" placeholder="Enter IP Address:">
-  <button type="submit">Geolocate IP</button>
-</form>
+<div class="form">
+  <mat-form-field appearance="fill" [formGroup]="ipForm">
+    <mat-label>Check IP on map!</mat-label>
+    <input matInput name="ip" formControlName="ip">
+  </mat-form-field>
+  <button mat-button color="basic" (click)="onCheck()">Check IP</button>
+</div>

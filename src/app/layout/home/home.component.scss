@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 3.5rem;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+mat-form-field {
+  background-color: navy;
+}
+
+input {
+  color: #fff;
+}
+
+button {
+  background-color: navy;
+  color: #fff;
+}
