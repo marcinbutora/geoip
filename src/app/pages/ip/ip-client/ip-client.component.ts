@@ -3,6 +3,7 @@ import {IpClient} from "../ip-model/ipclient";
 import {IpDataService} from "../ip-data.service";
 import {IP} from "../ip-model/ip";
 import {Title} from "@angular/platform-browser";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-ip-client',
@@ -14,7 +15,7 @@ export class IpClientComponent implements OnInit {
   @Input() data2!: IP;
   ip!: string;
 
-  constructor(private ipService: IpDataService, private title: Title) { }
+  constructor(private ipService: IpDataService, private title: Title, private router: Router) { }
 
   ngOnInit(): void {
     this.ipService.getClientIP().subscribe((data) => {
@@ -23,6 +24,7 @@ export class IpClientComponent implements OnInit {
         this.data2 = data;
         const map = this.ipService.displayMap(data);
         this.ipService.addMarkerToMap(data, map);
+        this.router.navigate([`/ip/${data.ip}`]);
         this.title.setTitle(`${data.ip} (${data.country_name}) - GeoIP`)
       })
       })
