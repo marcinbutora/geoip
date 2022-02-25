@@ -1,7 +1,17 @@
-<div class="form">
-  <mat-form-field appearance="fill" [formGroup]="ipForm">
-    <mat-label>Check IP on map!</mat-label>
-    <input matInput name="ip" formControlName="ip">
-  </mat-form-field>
-  <button mat-button color="basic" (click)="onCheck()">Check IP</button>
-</div>
+<!--<div class="form">-->
+<!--  <mat-form-field appearance="fill" [formGroup]="ipForm">-->
+<!--    <mat-label>Check IP on map!</mat-label>-->
+<!--    <input matInput name="ip" formControlName="ip">-->
+<!--  </mat-form-field>-->
+<!--  <button mat-button color="basic" (click)="onCheck()">Check IP</button>-->
+<!--</div>-->
+
+<form [formGroup]="ipForm" class="form">
+  <div class="form-group">
+    <label for="ip">Enter IP address:</label>
+    <input type="text" name="ip" class="form-control" id="ip" formControlName="ip"
+           placeholder="Enter in format: X.X.X.X">
+    <small *ngIf="ipForm.controls['ip'].invalid && ipForm.controls['ip'].touched">Please correct field above!</small>
+  </div>
+    <button type="submit" class="btn btn-primary" (click)="onCheck()">Check IP</button>
+</form>

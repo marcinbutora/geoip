@@ -1,10 +1,15 @@
-<nav mat-tab-nav-bar e2e="geoip-navigation">
-  <a mat-tab-link *ngFor="let link of links"
-    [routerLink]="link.path"
-     routerLinkActive="active" #rla="routerLinkActive"
-     [active]="rla.isActive">
-     {{link.title}}
-  </a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+  <a class="navbar-brand" href="#">GeoIP</a>
+  <button class="navbar-toggler" type="button">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav" *ngFor="let item of links">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="item.path">{{item.title}}</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 <app-footer></app-footer>
 <router-outlet></router-outlet>

@@ -1,21 +1,16 @@
 .form {
-  display: flex;
-  justify-content: center;
   position: absolute;
-  top: 3.5rem;
+  top: 4rem;
   left: 50%;
   transform: translate(-50%);
 }
 
-mat-form-field {
-  background-color: navy;
-}
-
-input {
-  color: #fff;
-}
-
 button {
-  background-color: navy;
-  color: #fff;
+  margin: 0.5rem 0 0 0;
+}
+
+small {
+  color: #f00;
+  margin-top: 0.5rem;
+
 }

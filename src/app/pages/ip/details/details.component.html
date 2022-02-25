@@ -1,16 +1,14 @@
-<mat-card class="ip-card">
-  <mat-card-header>
-    <div mat-card-avatar><img src="https://flagcdn.com/40x30/{{data?.country_tld?.replace('.', '')}}.png" alt="{{data?.country_name}} Flag"></div>
-    <mat-card-title>{{data?.ip}}</mat-card-title>
-    <mat-card-subtitle>{{data?.city}} ({{data?.country}}), capital: {{data?.country_capital}}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>
+<div class="card ip-card">
+  <img class="card-img" src="https://flagcdn.com/40x30/{{data?.country_tld?.replace('.','')}}.png" alt="Flag">
+  <div class="card-body">
+    <h5 class="card-title">{{data?.ip}}</h5>
+    <h6>{{data?.city}} ({{data?.country}}), capital: {{data?.country_capital}}</h6>
+    <p class="card-text">
       Currency: {{data?.currency}} ({{data?.currency_name}})<br>
       ISP Provider: {{data?.org}}<br>
       GPS: {{data?.latitude}}, {{data?.longitude}}
     </p>
-  </mat-card-content>
-</mat-card>
+  </div>
+</div>
 
 
