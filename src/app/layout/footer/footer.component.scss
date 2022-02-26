@@ -1,15 +1,14 @@
 footer {
-  position: absolute;
-  bottom: 0;
-  z-index: 10;
-  width: 100vw;
+  font-size: 0.9rem;
+}
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
 }
 
 a {
-  color: #fff;
   text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }

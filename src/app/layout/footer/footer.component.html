@@ -1,7 +1,14 @@
-<!--<footer>-->
-<!--  <mat-toolbar color="primary">-->
-<!--    <mat-toolbar-row>-->
-<!--      <span>&copy; 2022 by <a href="https://github.com/mb83pl">Marcin Butora</a></span>-->
-<!--    </mat-toolbar-row>-->
-<!--  </mat-toolbar>-->
-<!--</footer>-->
+<footer class="footer mt-auto py-3 bg-light fixed-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 text-left">
+        <span><a href="https://github.com/mb83pl" target="_blank">{{author}}</a></span>
+      </div>
+      <div class="col-6 text-right">
+        <span>last update: {{ dateInfo | date: "y.MM.dd HH:mm" }}</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
