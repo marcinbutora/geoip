@@ -3,8 +3,9 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {IP} from "./ip-model/ip";
 import * as mapboxgl from "mapbox-gl";
-import {Map, Marker, Popup} from "mapbox-gl";
+import {Map, Marker} from "mapbox-gl";
 import {IpClient} from "./ip-model/ipclient";
+import {IpWeather} from "./ip-model/ipweather";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,8 @@ export class IpDataService {
   popup!: mapboxgl.Popup;
   apiUrl: string = 'https://ipapi.co/';
   apiClient: string = 'https://api.ipify.org/?format=json';
+  apiWeatherUrl: string = 'https://api.openweathermap.org/data/2.5/weather?';
+  apiWeatherKey: string = '8d1da24a8faf953ff79f47841b4e5fef';
 
   constructor(private http: HttpClient) {
     (mapboxgl as any).accessToken = 'pk.eyJ1IjoibWI4M3BsIiwiYSI6ImNrenU2dmZqYzFhbmgybm9odWR3MW1zbGEifQ.FkK9NeB26U89mDa1q_DQkQ';
@@ -27,6 +30,10 @@ export class IpDataService {
 
   getClientIP = (): Observable<IpClient> => {
     return this.http.get<IpClient>(`${this.apiClient}`)
+  }
+
+  getWeatherByIp = (lat: number, lon: number): Observable<IpWeather> => {
+    return this.http.get<IpWeather>(`${this.apiWeatherUrl}lat=${lat}&lon=${lon}&appid=${this.apiWeatherKey}&units=metric`);
   }
 
   addMarkerToMap(data: IP, map: mapboxgl.Map) {

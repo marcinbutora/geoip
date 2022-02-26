@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {IP} from "../ip-model/ip";
+import {IpWeather} from "../ip-model/ipweather";
 
 @Component({
   selector: 'app-details',
@@ -8,4 +9,5 @@ import {IP} from "../ip-model/ip";
 })
 export class DetailsComponent {
   @Input() data: IP | undefined;
+  @Input() weather: IpWeather | undefined;
 }

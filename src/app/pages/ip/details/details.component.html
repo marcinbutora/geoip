@@ -6,7 +6,11 @@
     <p class="card-text">
       Currency: {{data?.currency}} ({{data?.currency_name}})<br>
       ISP Provider: {{data?.org}}<br>
-      GPS: {{data?.latitude}}, {{data?.longitude}}
+      GPS: {{data?.latitude}}, {{data?.longitude}}<br>
+      <img src="https://openweathermap.org/img/w/{{weather?.weather?.[0]?.icon}}.png"
+           title="{{weather?.weather?.[0]?.description}}" alt="{{weather?.weather?.[0]?.description}}">
+      Temp: {{weather?.main?.temp}}<sup>o</sup>C
+      Feels like: {{weather?.main?.feels_like}}<sup>o</sup>C<br>
     </p>
   </div>
 </div>
