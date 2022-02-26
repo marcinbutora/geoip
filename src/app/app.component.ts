@@ -6,8 +6,11 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  isCollapsed = true;
+
   links = [
     {path: '/', title: 'Home'},
     {path: '/ip', title: 'Check Your IP'}
   ]
+
 }

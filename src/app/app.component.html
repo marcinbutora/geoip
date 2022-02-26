@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">GeoIP</a>
-  <button class="navbar-toggler" type="button">
+  <button class="navbar-toggler" type="button" (click)="collapse.toggle()">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
+  <div class="collapse navbar-collapse" id="navbarNav" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
     <ul class="navbar-nav" *ngFor="let item of links">
       <li class="nav-item">
         <a class="nav-link" [routerLink]="item.path">{{item.title}}</a>

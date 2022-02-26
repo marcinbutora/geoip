@@ -11,6 +11,7 @@ import {HomeComponent} from './layout/home/home.component';
 import {IpModule} from "./pages/ip/ip.module";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from "@angular/forms";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     CommonModule,
     IpModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]
