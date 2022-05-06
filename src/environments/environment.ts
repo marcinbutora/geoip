@@ -3,11 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  apiUrl: 'https://ipapi.co/',
-  apiClient: 'https://api.ipify.org/?format=json',
-  apiWeatherUrl: 'https://api.openweathermap.org/data/2.5/weather?',
-  apiWeatherKey: '8d1da24a8faf953ff79f47841b4e5fef'
+  production: false
 };
 
 /*

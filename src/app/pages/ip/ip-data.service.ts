@@ -16,22 +16,27 @@ export class IpDataService {
   marker!: mapboxgl.Marker;
   popup!: mapboxgl.Popup;
 
+  private readonly apiUrl: string = 'https://ipapi.co/'
+  private readonly apiClient: string ='https://api.ipify.org/?format=json'
+  private readonly apiWeatherUrl: string ='https://api.openweathermap.org/data/2.5/weather?'
+  private readonly apiWeatherKey: string ='8d1da24a8faf953ff79f47841b4e5fef'
+
   constructor(private http: HttpClient) {
     (mapboxgl as any).accessToken =
       'pk.eyJ1IjoibWI4M3BsIiwiYSI6ImNrenU2dmZqYzFhbmgybm9odWR3MW1zbGEifQ.FkK9NeB26U89mDa1q_DQkQ';
   }
 
   getDataByIP = (ip: string): Observable<IP> => {
-    return this.http.get<IP>(`${environment.apiUrl}${ip}/json/`);
+    return this.http.get<IP>(`${this.apiUrl}${ip}/json/`);
   };
 
   getClientIP = (): Observable<IpClient> => {
-    return this.http.get<IpClient>(`${environment.apiClient}`);
+    return this.http.get<IpClient>(`${this.apiClient}`);
   };
 
   getWeatherByIp = (lat: number, lon: number): Observable<IpWeather> => {
     return this.http.get<IpWeather>(
-      `${environment.apiWeatherUrl}lat=${lat}&lon=${lon}&appid=${environment.apiWeatherKey}&units=metric`
+      `${this.apiWeatherUrl}lat=${lat}&lon=${lon}&appid=${this.apiWeatherKey}&units=metric`
     );
   };
 
