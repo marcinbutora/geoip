@@ -39,13 +39,13 @@ export class IpDataService {
     );
   };
 
-  addMarkerToMap(data: IP, map: mapboxgl.Map) {
+  addMarkerToMap = (data: IP, map: mapboxgl.Map) => {
     this.marker = new Marker()
       .setLngLat([data.longitude, data.latitude])
       .addTo(map);
   }
 
-  displayMap(data: IP) {
+  displayMap = (data: IP) => {
     return new Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
