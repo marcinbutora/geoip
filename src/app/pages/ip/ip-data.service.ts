@@ -17,9 +17,9 @@ export class IpDataService {
   popup!: mapboxgl.Popup;
 
   private readonly apiUrl: string = 'https://ipapi.co/'
-  private readonly apiClient: string ='https://api.ipify.org/?format=json'
-  private readonly apiWeatherUrl: string ='https://api.openweathermap.org/data/2.5/weather?'
-  private readonly apiWeatherKey: string ='8d1da24a8faf953ff79f47841b4e5fef'
+  private readonly apiClient: string = 'https://api.ipify.org/?format=json'
+  private readonly apiWeatherUrl: string = 'https://api.openweathermap.org/data/2.5/weather?'
+  private readonly apiWeatherKey: string = '8d1da24a8faf953ff79f47841b4e5fef'
 
   constructor(private http: HttpClient) {
     (mapboxgl as any).accessToken =
