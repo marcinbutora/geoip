@@ -1,18 +1,28 @@
 <div class="card ip-card">
-  <img class="card-img" src="https://flagcdn.com/40x30/{{data?.country_tld?.replace('.','')}}.png" alt="Flag">
+  <img
+    class="card-img"
+    src="https://flagcdn.com/40x30/{{
+      data?.country_tld?.replace('.', '')
+    }}.png"
+    alt="Flag"
+  />
   <div class="card-body">
-    <h5 class="card-title">{{data?.ip}}</h5>
-    <h6>{{data?.city}} ({{data?.country}}), capital: {{data?.country_capital}}</h6>
+    <h5 class="card-title">{{ data?.ip }}</h5>
+    <h6>
+      {{ data?.city }} ({{ data?.country }}), capital:
+      {{ data?.country_capital }}
+    </h6>
     <p class="card-text">
-      Currency: {{data?.currency}} ({{data?.currency_name}})<br>
-      ISP Provider: {{data?.org}}<br>
-      GPS: {{data?.latitude}}, {{data?.longitude}}<br>
-      <img src="https://openweathermap.org/img/w/{{weather?.weather?.[0]?.icon}}.png"
-           title="{{weather?.weather?.[0]?.description}}" alt="{{weather?.weather?.[0]?.description}}">
-      Temp: {{weather?.main?.temp}}<sup>o</sup>C
-      Feels like: {{weather?.main?.feels_like}}<sup>o</sup>C<br>
+      Currency: {{ data?.currency }} ({{ data?.currency_name }})<br />
+      ISP Provider: {{ data?.org }}<br />
+      GPS: {{ data?.latitude }}, {{ data?.longitude }}<br />
+      <img
+        src="https://openweathermap.org/img/w/{{weather?.weather?.[0]?.icon}}.png"
+        title="{{weather?.weather?.[0]?.description}}"
+        alt="{{weather?.weather?.[0]?.description}}"
+      />
+      Temp: {{ weather?.main?.temp }}<sup>o</sup>C Feels like:
+      {{ weather?.main?.feels_like }}<sup>o</sup>C<br />
     </p>
   </div>
 </div>
-
-
