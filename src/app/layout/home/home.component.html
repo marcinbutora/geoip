@@ -10,10 +10,7 @@
         formControlName="ip"
         placeholder="Enter in format: X.X.X.X"
       />
-      <small
-        *ngIf="ipForm.controls['ip'].invalid && ipForm.controls['ip'].touched"
-        >Please correct field above!</small
-      >
+      <small *ngIf="isFormNotValid()">Please correct field above!</small>
     </div>
     <button type="submit" class="btn btn-primary" (click)="onCheck()">
       Check IP

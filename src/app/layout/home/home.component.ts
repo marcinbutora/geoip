@@ -17,4 +17,7 @@ export class HomeComponent {
   onCheck = () => {
     this.router.navigate([`/ip/${this.ipForm.controls['ip'].value}`]);
   };
+
+  isFormNotValid = (): boolean =>
+    this.ipForm.controls['ip'].invalid && this.ipForm.controls['ip'].touched;
 }
