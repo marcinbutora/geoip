@@ -7,6 +7,7 @@ import { Map, Marker } from 'mapbox-gl';
 import { IpClient } from './ip-model/ipclient';
 import { IpWeather } from './ip-model/ipweather';
 import { environment } from 'src/environments/environment';
+import { IpTimeZone } from './ip-model/iptimezone';
 
 @Injectable({
   providedIn: 'root',
@@ -16,10 +17,14 @@ export class IpDataService {
   marker!: mapboxgl.Marker;
   popup!: mapboxgl.Popup;
 
-  private readonly apiUrl: string = 'https://ipapi.co/'
-  private readonly apiClient: string = 'https://api.ipify.org/?format=json'
-  private readonly apiWeatherUrl: string = 'https://api.openweathermap.org/data/2.5/weather?'
-  private readonly apiWeatherKey: string = '8d1da24a8faf953ff79f47841b4e5fef'
+  private readonly apiUrl: string = 'https://ipapi.co/';
+  private readonly apiClient: string = 'https://api.ipify.org/?format=json';
+  private readonly apiWeatherUrl: string =
+    'https://api.openweathermap.org/data/2.5/weather?';
+  private readonly apiWeatherKey: string = '8d1da24a8faf953ff79f47841b4e5fef';
+  private readonly apiTimeZoneKey: string = 'XHNH1YD4XKP2';
+  private readonly apiTimeZoneUrl: string =
+    'https://api.timezonedb.com/v2.1/get-time-zone';
 
   constructor(private http: HttpClient) {
     (mapboxgl as any).accessToken =
@@ -40,11 +45,17 @@ export class IpDataService {
     );
   };
 
+  getTimeZoneByIp = (lat: number, lng: number): Observable<IpTimeZone> => {
+    return this.http.get<IpTimeZone>(
+      `${this.apiTimeZoneUrl}?key=${this.apiTimeZoneKey}&lat=${lat}&lng=${lng}&by=position&format=json`
+    );
+  };
+
   addMarkerToMap = (data: IP, map: mapboxgl.Map) => {
     this.marker = new Marker()
       .setLngLat([data.longitude, data.latitude])
       .addTo(map);
-  }
+  };
 
   displayMap = (data: IP) => {
     return new Map({
@@ -53,5 +64,5 @@ export class IpDataService {
       zoom: 12,
       center: [data.longitude, data.latitude],
     });
-  }
+  };
 }

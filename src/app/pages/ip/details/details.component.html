@@ -24,6 +24,6 @@
       Temp: {{ weather?.main?.temp }}<sup>o</sup>C Feels like:
       {{ weather?.main?.feels_like }}<sup>o</sup>C<br />
     </p>
-    <p>Update time: {{ getWeatherTime() | date: "HH:mm, yyyy-MM-dd" }}</p>
+    <p>Local date and time: <br />{{ timezone?.formatted }}</p>
   </div>
 </div>

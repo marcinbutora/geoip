@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IP } from '../ip-model/ip';
+import { IpTimeZone } from '../ip-model/iptimezone';
 import { IpWeather } from '../ip-model/ipweather';
 
 @Component({
@@ -9,11 +10,6 @@ import { IpWeather } from '../ip-model/ipweather';
 })
 export class DetailsComponent {
   @Input() data: IP | undefined;
-  @Input() weather!: IpWeather;
-
-  getWeatherTime = () => {
-    const dateTime = this.weather?.dt;
-    const dateTimeConverted = new Date(dateTime * 1000);
-    return dateTimeConverted.toLocaleString();
-  };
+  @Input() weather: IpWeather | undefined;
+  @Input() timezone: IpTimeZone | undefined;
 }

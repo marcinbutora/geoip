@@ -4,6 +4,7 @@ import { IpDataService } from '../ip-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { IpWeather } from '../ip-model/ipweather';
+import { IpTimeZone } from '../ip-model/iptimezone';
 
 @Component({
   selector: 'app-ip-info',
@@ -13,6 +14,8 @@ import { IpWeather } from '../ip-model/ipweather';
 export class IpInfoComponent implements OnInit {
   @Input() data: IP | undefined;
   @Input() weatherData!: IpWeather;
+  @Input() timezoneData!: IpTimeZone;
+  timezone: string = '';
   ip: string = '';
 
   constructor(
@@ -36,6 +39,13 @@ export class IpInfoComponent implements OnInit {
           this.weatherData.main.feels_like = Math.floor(
             weather.main.feels_like
           );
+          this.ipService
+            .getTimeZoneByIp(data.latitude, data.longitude)
+            .subscribe((timeZF) => {
+              console.log('timezone ipInfo', timeZF.formatted);
+              this.timezoneData = timeZF;
+              this.timezone = timeZF.formatted;
+            });
         });
     });
   }
