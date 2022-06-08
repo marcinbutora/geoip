@@ -12,4 +12,10 @@ export class DetailsComponent {
   @Input() data: IP | undefined;
   @Input() weather: IpWeather | undefined;
   @Input() timezone: IpTimeZone | undefined;
+
+  getFlag = () =>
+    `https://flagcdn.com/40x30/${this.data?.country_tld?.replace('.', '')}.png`;
+
+  getWeatherIcon = () =>
+    `https://openweathermap.org/img/w/${this.weather?.weather?.[0]?.icon}.png`;
 }
