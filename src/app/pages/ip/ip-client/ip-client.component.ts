@@ -43,7 +43,6 @@ export class IpClientComponent implements OnInit {
             this.ipService
               .getTimeZoneByIp(data.latitude, data.longitude)
               .subscribe((timezone) => {
-                console.log('timezone ipClient', timezone.formatted);
                 this.timezoneData = timezone;
                 this.timezone = timezone.formatted;
               });

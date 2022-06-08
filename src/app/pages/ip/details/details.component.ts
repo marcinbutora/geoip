@@ -13,9 +13,16 @@ export class DetailsComponent {
   @Input() weather: IpWeather | undefined;
   @Input() timezone: IpTimeZone | undefined;
 
-  getFlag = () =>
-    `https://flagcdn.com/40x30/${this.data?.country_tld?.replace('.', '')}.png`;
+  getFlag = () => {
+    const flagFile = this.data?.country_tld.replace('.', '');
+    if (flagFile == 'uk') {
+      return `https://flagcdn.com/40x30/gb.png`;
+    }
+    return `https://flagcdn.com/40x30/${flagFile}.png`;
+  };
 
-  getWeatherIcon = () =>
-    `https://openweathermap.org/img/w/${this.weather?.weather?.[0]?.icon}.png`;
+  getWeatherIcon = () => {
+    const weatherIconFile = this.weather?.weather?.[0]?.icon;
+    return `https://openweathermap.org/img/w/${weatherIconFile}.png`;
+  };
 }

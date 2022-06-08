@@ -42,7 +42,6 @@ export class IpInfoComponent implements OnInit {
           this.ipService
             .getTimeZoneByIp(data.latitude, data.longitude)
             .subscribe((timeZF) => {
-              console.log('timezone ipInfo', timeZF.formatted);
               this.timezoneData = timeZF;
               this.timezone = timeZF.formatted;
             });
