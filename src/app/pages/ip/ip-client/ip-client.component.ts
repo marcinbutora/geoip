@@ -12,7 +12,7 @@ import { IpWeather } from '../ip-model/ipweather';
 })
 export class IpClientComponent implements OnInit {
   @Input() data2: IP | undefined;
-  @Input() weatherData: IpWeather | undefined;
+  @Input() weatherData!: IpWeather;
 
   ip!: string;
 

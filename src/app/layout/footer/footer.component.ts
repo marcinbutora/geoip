@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   author: string = 'Marcin Butora';
-  dateInfo: Date = new Date('2022-05-05 19:47');
+  dateInfo: Date = new Date('2022-06-08 05:42');
 }
