@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { IpWeather } from '../ip-model/ipweather';
 import { IpTimeZone } from '../ip-model/iptimezone';
-import { flatMap, forkJoin, mergeMap, switchMap, zip } from 'rxjs';
+import { zip } from 'rxjs';
 
 @Component({
   selector: 'app-ip-info',
