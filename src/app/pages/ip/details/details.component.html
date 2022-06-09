@@ -3,12 +3,12 @@
   <div class="card-body">
     <h5 class="card-title">{{ data?.ip }}</h5>
     <h6>
-      {{ data?.city }} ({{ data?.country }}), capital:
+      {{ data?.city }} ({{ data?.country_name }}, {{ data?.country }}), capital:
       {{ data?.country_capital }}
     </h6>
     <p class="card-text">
       Currency: {{ data?.currency }} ({{ data?.currency_name }})<br />
-      ISP Provider: {{ data?.org }}<br />
+      <span *ngIf="data?.org">ISP Provider: {{ data?.org }}<br /></span>
       GPS: {{ data?.latitude }}, {{ data?.longitude }}<br />
       <img
         [src]="getWeatherIcon()"
