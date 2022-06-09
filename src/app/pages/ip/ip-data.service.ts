@@ -39,13 +39,16 @@ export class IpDataService {
     return this.http.get<IpClient>(`${this.apiClient}`);
   };
 
-  getWeatherByIp = (lat: number, lon: number): Observable<IpWeather> => {
+  getWeatherByLatAndLon = (lat: number, lon: number): Observable<IpWeather> => {
     return this.http.get<IpWeather>(
       `${this.apiWeatherUrl}lat=${lat}&lon=${lon}&appid=${this.apiWeatherKey}&units=metric`
     );
   };
 
-  getTimeZoneByIp = (lat: number, lng: number): Observable<IpTimeZone> => {
+  getTimeZoneByLatAndLon = (
+    lat: number,
+    lng: number
+  ): Observable<IpTimeZone> => {
     return this.http.get<IpTimeZone>(
       `${this.apiTimeZoneUrl}?key=${this.apiTimeZoneKey}&lat=${lat}&lng=${lng}&by=position&format=json`
     );

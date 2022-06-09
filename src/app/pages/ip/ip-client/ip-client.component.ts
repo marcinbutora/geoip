@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IpDataService } from '../ip-data.service';
 import { IP } from '../ip-model/ip';
 import { Title } from '@angular/platform-browser';
@@ -13,8 +13,8 @@ import { IpTimeZone } from '../ip-model/iptimezone';
 })
 export class IpClientComponent implements OnInit {
   @Input() data2: IP | undefined;
-  @Input() weatherData!: IpWeather;
-  @Input() timezoneData!: IpTimeZone;
+  @Input() weatherData: IpWeather | undefined;
+  @Input() timezoneData: IpTimeZone | undefined;
   timezone: string = '';
   ip!: string;
 
@@ -33,7 +33,7 @@ export class IpClientComponent implements OnInit {
         this.router.navigate([`/ip/${data.ip}`]);
         this.title.setTitle(`${data.ip} (${data.country_name}) - GeoIP`);
         this.ipService
-          .getWeatherByIp(data.latitude, data.longitude)
+          .getWeatherByLatAndLon(data.latitude, data.longitude)
           .subscribe((weather) => {
             this.weatherData = weather;
             this.weatherData.main.temp = Math.floor(weather.main.temp);
@@ -41,7 +41,7 @@ export class IpClientComponent implements OnInit {
               weather.main.feels_like
             );
             this.ipService
-              .getTimeZoneByIp(data.latitude, data.longitude)
+              .getTimeZoneByLatAndLon(data.latitude, data.longitude)
               .subscribe((timezone) => {
                 this.timezoneData = timezone;
                 this.timezone = timezone.formatted;

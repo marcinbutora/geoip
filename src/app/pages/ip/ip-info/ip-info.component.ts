@@ -34,7 +34,7 @@ export class IpInfoComponent implements OnInit {
       this.ipService.addMarkerToMap(data, map);
       this.title.setTitle(`${data.ip} (${data.country_name}) - GeoIP`);
       this.ipService
-        .getWeatherByIp(data.latitude, data.longitude)
+        .getWeatherByLatAndLon(data.latitude, data.longitude)
         .subscribe((weather) => {
           this.weatherData = weather;
           this.weatherData.main.temp = Math.floor(weather.main.temp);
@@ -42,7 +42,7 @@ export class IpInfoComponent implements OnInit {
             weather.main.feels_like
           );
           this.ipService
-            .getTimeZoneByIp(data.latitude, data.longitude)
+            .getTimeZoneByLatAndLon(data.latitude, data.longitude)
             .subscribe((timezone) => {
               this.timezoneData = timezone;
               this.timezone = timezone.formatted;
