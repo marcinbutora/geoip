@@ -26,4 +26,3 @@ export interface IP {
   asn: string;
   org: string;
 }
-

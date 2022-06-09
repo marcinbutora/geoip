@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { IpWeather } from '../ip-model/ipweather';
 import { IpTimeZone } from '../ip-model/iptimezone';
+import { flatMap, forkJoin, mergeMap, switchMap, zip } from 'rxjs';
 
 @Component({
   selector: 'app-ip-info',
@@ -13,10 +14,12 @@ import { IpTimeZone } from '../ip-model/iptimezone';
 })
 export class IpInfoComponent implements OnInit {
   @Input() data: IP | undefined;
-  @Input() weatherData!: IpWeather;
-  @Input() timezoneData!: IpTimeZone;
+  @Input() weatherData: IpWeather | undefined;
+  @Input() timezoneData: IpTimeZone | undefined;
   timezone: string = '';
   ip: string = '';
+  lat: number = 0;
+  lon: number = 0;
 
   constructor(
     private ipService: IpDataService,
@@ -25,27 +28,31 @@ export class IpInfoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.ip = this.route.snapshot.params['ip'];
-    this.ipService.getDataByIP(this.ip).subscribe((data) => {
-      this.data = data;
-      const map = this.ipService.displayMap(data);
-      this.ipService.addMarkerToMap(data, map);
-      this.title.setTitle(`${data.ip} (${data.country_name}) - GeoIP`);
-      this.ipService
-        .getWeatherByIp(data.latitude, data.longitude)
-        .subscribe((weather) => {
-          this.weatherData = weather;
-          this.weatherData.main.temp = Math.floor(weather.main.temp);
-          this.weatherData.main.feels_like = Math.floor(
-            weather.main.feels_like
-          );
-          this.ipService
-            .getTimeZoneByIp(data.latitude, data.longitude)
-            .subscribe((timeZF) => {
-              this.timezoneData = timeZF;
-              this.timezone = timeZF.formatted;
-            });
-        });
-    });
+    this.getAllData();
   }
+
+  getAllData = () => {
+    this.ip = this.route.snapshot.params['ip'];
+    zip(
+      this.ipService.getDataByIP(this.ip),
+      this.ipService.getWeatherByIp(this.lat, this.lon),
+      this.ipService.getTimeZoneByIp(this.lat, this.lon)
+    ).subscribe(([responseDataIp, responseWeather, responseTimeZone]) => {
+      this.ipService.getDataByIP(responseDataIp.ip);
+      this.data = responseDataIp;
+      const map = responseDataIp;
+      const displayMap = this.ipService.displayMap(map);
+      this.ipService.addMarkerToMap(responseDataIp, displayMap);
+      this.title.setTitle(
+        `${responseDataIp.ip} (${responseDataIp.country_name}) - GeoIP`
+      );
+      this.weatherData = responseWeather;
+      this.weatherData.main.temp = Math.floor(responseWeather.main.temp);
+      this.weatherData.main.feels_like = Math.floor(
+        responseWeather.main.feels_like
+      );
+      this.timezoneData = responseTimeZone;
+      this.timezone = responseTimeZone.formatted;
+    });
+  };
 }
