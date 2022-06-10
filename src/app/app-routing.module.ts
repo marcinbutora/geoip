@@ -2,18 +2,22 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IpInfoComponent } from './pages/ip/ip-info/ip-info.component';
 import { HomeComponent } from './layout/home/home.component';
-import { IpClientComponent } from './pages/ip/ip-client/ip-client.component';
 
 export const enum RoutesLinks {
-  ipClient = 'ip/:ip',
+  ipGetData = 'ip/:ip/:lat/:lon',
+  ipData = 'ip/:ip',
   empty = '',
   ip = 'ip',
 }
 
 const routes: Routes = [
-  { path: RoutesLinks.ipClient, component: IpInfoComponent },
+  { path: RoutesLinks.ipGetData, component: IpInfoComponent },
   { path: RoutesLinks.empty, component: HomeComponent },
-  { path: RoutesLinks.ip, component: IpClientComponent },
+  {
+    path: RoutesLinks.ipData,
+    pathMatch: 'full',
+    redirectTo: RoutesLinks.ipGetData,
+  },
   { path: RoutesLinks.empty, pathMatch: 'full', redirectTo: '/' },
   { path: '**', redirectTo: RoutesLinks.ip },
 ];
