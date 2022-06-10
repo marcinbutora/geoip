@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IP } from '../ip-model/ip';
 import { IpDataService } from '../ip-data.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 import { IpWeather } from '../ip-model/ipweather';
 import { IpTimeZone } from '../ip-model/iptimezone';
 import { zip } from 'rxjs';
@@ -24,7 +24,8 @@ export class IpInfoComponent implements OnInit {
   constructor(
     private ipService: IpDataService,
     private route: ActivatedRoute,
-    private title: Title
+    private title: Title,
+    private metaService: Meta
   ) {}
 
   ngOnInit(): void {
@@ -44,8 +45,29 @@ export class IpInfoComponent implements OnInit {
     ).subscribe(([responseData, responseWeather, responseTimezone]) => {
       this.data = responseData;
       this.title.setTitle(
-        `${responseData.ip} - ${responseData.city}, ${responseData.country_name}, ${responseData.country} - GeoIP`
+        this.setTitleForPage(
+          responseData.ip,
+          responseData.city,
+          responseData.country,
+          responseData.country_name
+        )
       );
+      this.metaService.addTags([
+        {
+          name: 'description',
+          content: `${responseData.ip}, ${responseData.city}, ${responseData.country}, ${responseData.country_name}`,
+        },
+        { name: 'robots', content: 'index, follow' },
+        {
+          property: 'og:title',
+          content: this.setTitleForPage(
+            responseData.ip,
+            responseData.city,
+            responseData.country,
+            responseData.country_name
+          ),
+        },
+      ]);
       const map = this.ipService.displayMap(this.data);
       this.ipService.addMarkerToMap(this.data, map);
       this.weatherData = responseWeather;
@@ -53,4 +75,13 @@ export class IpInfoComponent implements OnInit {
       this.timezone = responseTimezone.formatted;
     });
   }
+
+  setTitleForPage = (
+    ip: string,
+    city: string,
+    country: string,
+    country_code: string
+  ) => {
+    return `${ip} - ${city}, ${country}, ${country_code} - GeoIP`;
+  };
 }
