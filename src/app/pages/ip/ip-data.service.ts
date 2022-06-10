@@ -17,6 +17,8 @@ export class IpDataService {
   popup!: mapboxgl.Popup;
 
   private readonly apiUrl: string = 'https://ipapi.co/';
+  private readonly apiKey: string =
+    'UwGCO4DZPD66kaS7nsXoC8mZEeeGP9AKjDgJGNOkREjmj3cMOO';
   private readonly apiClient: string = 'https://api.ipify.org/?format=json';
   private readonly apiWeatherUrl: string =
     'https://api.openweathermap.org/data/2.5/weather?';
@@ -31,7 +33,7 @@ export class IpDataService {
   }
 
   getDataByIP = (ip: string): Observable<IP> => {
-    return this.http.get<IP>(`${this.apiUrl}${ip}/json/`);
+    return this.http.get<IP>(`${this.apiUrl}${ip}/json/?key=${this.apiKey}`);
   };
 
   getClientIP = (): Observable<IpClient> => {
