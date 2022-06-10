@@ -24,8 +24,7 @@ export class IpInfoComponent implements OnInit {
   constructor(
     private ipService: IpDataService,
     private route: ActivatedRoute,
-    private title: Title,
-    private router: Router
+    private title: Title
   ) {}
 
   ngOnInit(): void {
@@ -33,9 +32,10 @@ export class IpInfoComponent implements OnInit {
     this.lat = this.route.snapshot.params['lat'];
     this.lon = this.route.snapshot.params['lon'];
 
-    if (this.ip) {
-      this.router.navigate([`/ip/${this.ip}/${this.lat}/${this.lon}`]);
-    }
+    this.ipService.getDataByIP(this.ip).subscribe((val) => {
+      this.lat = val.latitude;
+      this.lon = val.longitude;
+    });
 
     zip(
       this.ipService.getDataByIP(this.ip),

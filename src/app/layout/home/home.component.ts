@@ -15,30 +15,32 @@ export class HomeComponent {
 
   ipForm = new FormGroup({
     ip: new FormControl('', Validators.required),
+    lat: new FormControl(''),
+    lng: new FormControl(''),
   });
 
-  constructor(
-    private router: Router,
-    private service: IpDataService,
-    private route: ActivatedRoute
-  ) {
+  constructor(private router: Router, private service: IpDataService) {
     this.ipGet = '';
   }
 
-  ngOnInit(): void {
-    this.service.getDataByIP(this.ipGet).subscribe((val) => {
-      this.ipGet = val.ip;
-      this.lat = val.latitude;
-      this.lng = val.longitude;
-    });
-  }
-
   onCheck = () => {
-    this.router.navigate([
-      `/ip/${this.ipForm.controls['ip'].value}/${this.lat}/${this.lng}`,
-    ]);
+    this.router.navigate([`/ip/${this.ipGet}/${this.lat}/${this.lng}`]);
   };
 
   isFormNotValid = (): boolean =>
     this.ipForm.controls['ip'].invalid && this.ipForm.controls['ip'].touched;
+
+  ipGetAndChange = (ip: string) => {
+    this.ipGet = ip;
+    this.service.getDataByIP(this.ipGet).subscribe((val) => {
+      this.lat = val.latitude;
+      this.lng = val.longitude;
+    });
+  };
+
+  getMyIP = () => {
+    this.service.getClientIP().subscribe((val) => {
+      this.ipGet = val.ip;
+    });
+  };
 }

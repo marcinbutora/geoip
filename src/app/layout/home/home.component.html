@@ -10,11 +10,34 @@
         formControlName="ip"
         placeholder="Enter in format: X.X.X.X"
         ngModel="{{ ipGet }}"
+        (ngModelChange)="ipGetAndChange($event)"
+      /><button
+        type="submit"
+        class="btn btn-outline-success btn-sm"
+        (click)="getMyIP()"
+      >
+        Show my IP address
+      </button>
+      <label for="lat">Latitude above based on your IP address</label>
+      <input
+        type="text"
+        name="lat"
+        class="form-control"
+        formControlName="lat"
+        ngModel="{{ lat }}"
+      />
+      <label for="lon">Longitude above based on your IP address</label>
+      <input
+        type="text"
+        name="lng"
+        class="form-control"
+        formControlName="lng"
+        ngModel="{{ lng }}"
       />
       <small *ngIf="isFormNotValid()">Please correct field above!</small>
     </div>
     <button type="submit" class="btn btn-primary" (click)="onCheck()">
-      Check IP
+      Display IP address on map
     </button>
   </form>
 </div>
