@@ -11,14 +11,16 @@
         placeholder="Enter in format: X.X.X.X"
         ngModel="{{ ipGet }}"
         (ngModelChange)="ipGetAndChange($event)"
-      /><button
+      />
+      <p><small *ngIf="isFormNotValid()">Please correct field above!</small></p>
+      <button
         type="submit"
         class="btn btn-outline-success btn-sm"
         (click)="getMyIP()"
       >
         Show my IP address
       </button>
-      <p><label for="lat">Latitude above based on your IP address</label></p>
+      <p><label for="lat">Latitude below is based on your IP address</label></p>
       <input
         type="text"
         name="lat"
@@ -26,7 +28,9 @@
         formControlName="lat"
         ngModel="{{ lat }}"
       />
-      <p><label for="lon">Longitude above based on your IP address</label></p>
+      <p>
+        <label for="lon">Longitude below is based on your IP address</label>
+      </p>
       <input
         type="text"
         name="lng"
@@ -34,7 +38,6 @@
         formControlName="lng"
         ngModel="{{ lng }}"
       />
-      <small *ngIf="isFormNotValid()">Please correct field above!</small>
     </div>
     <button type="submit" class="btn btn-primary" (click)="onCheck()">
       Display IP address on map

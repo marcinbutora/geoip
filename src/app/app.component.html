@@ -3,13 +3,12 @@
   <button class="navbar-toggler" type="button" (click)="collapse.toggle()">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
-    <ul class="navbar-nav" *ngFor="let item of links">
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="item.path">{{item.title}}</a>
-      </li>
-    </ul>
-  </div>
+  <div
+    class="collapse navbar-collapse"
+    id="navbarNav"
+    #collapse="ngbCollapse"
+    [(ngbCollapse)]="isCollapsed"
+  ></div>
 </nav>
 <app-footer></app-footer>
 <router-outlet></router-outlet>
