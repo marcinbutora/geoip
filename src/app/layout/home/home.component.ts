@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IpDataService } from 'src/app/pages/ip/ip-data.service';
+import { IP } from 'src/app/pages/ip/ip-model/ip';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ export class HomeComponent {
   ipGet: string = '';
   lat: number = 0;
   lng: number = 0;
+  data: IP | undefined;
 
   ipForm = new FormGroup({
     ip: new FormControl('', Validators.required),
@@ -35,6 +37,8 @@ export class HomeComponent {
     this.service.getDataByIP(this.ipGet).subscribe((val) => {
       this.lat = val.latitude;
       this.lng = val.longitude;
+      this.data = val;
+      this.service.displayMap(val);
     });
   };
 
