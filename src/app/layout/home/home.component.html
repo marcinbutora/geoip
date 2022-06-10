@@ -20,7 +20,11 @@
       >
         Show my IP address
       </button>
-      <p><label for="lat">Latitude below is based on your IP address</label></p>
+      <p>
+        Latitude below is based on
+        <span *ngIf="!ipGet">your</span
+        ><span *ngIf="ipGet">above retrieved</span> IP address
+      </p>
       <input
         type="text"
         name="lat"
@@ -29,7 +33,9 @@
         ngModel="{{ lat }}"
       />
       <p>
-        <label for="lon">Longitude below is based on your IP address</label>
+        Longitude below is based on
+        <span *ngIf="!ipGet">your</span
+        ><span *ngIf="ipGet">above retrieved</span> IP address
       </p>
       <input
         type="text"
