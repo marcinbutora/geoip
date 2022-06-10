@@ -5,7 +5,7 @@
   position: absolute;
   top: 4rem;
   left: 50%;
-  transform: translate(-50%);
+  transform: translateX(-50%);
   margin: 0.5rem;
   background-color: #fff;
   padding: 1rem;
@@ -32,4 +32,14 @@ p {
 .full {
   width: 100vw;
   height: 100vh;
+}
+
+@media (max-width: 640px) {
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 90vw;
+  }
 }
