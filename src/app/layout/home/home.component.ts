@@ -13,7 +13,6 @@ export class HomeComponent {
   ipGet: string = '';
   lat: number = 0;
   lng: number = 0;
-  data: IP | undefined;
 
   ipForm = new FormGroup({
     ip: new FormControl('', Validators.required),
@@ -37,7 +36,6 @@ export class HomeComponent {
     this.service.getDataByIP(this.ipGet).subscribe((val) => {
       this.lat = val.latitude;
       this.lng = val.longitude;
-      this.data = val;
       this.service.displayMap(val);
     });
   };
