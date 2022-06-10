@@ -43,6 +43,9 @@ export class IpInfoComponent implements OnInit {
       this.ipService.getTimeZoneByLatAndLon(this.lat, this.lon)
     ).subscribe(([responseData, responseWeather, responseTimezone]) => {
       this.data = responseData;
+      this.title.setTitle(
+        `${responseData.ip} - ${responseData.country_name}, ${responseData.country} - GeoIP`
+      );
       const map = this.ipService.displayMap(this.data);
       this.ipService.addMarkerToMap(this.data, map);
       this.weatherData = responseWeather;
