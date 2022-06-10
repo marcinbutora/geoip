@@ -1,14 +1,15 @@
-<footer class="footer mt-auto py-3 bg-light fixed-bottom">
+<footer class="footer mt-auto py-3 fixed-bottom">
   <div class="container">
     <div class="row">
       <div class="col-6 text-left">
-        <span><a href="https://github.com/mb83pl" target="_blank">{{author}}</a></span>
+        <span
+          ><b>&copy; 2022 by {{ author }}</b></span
+        ><br />
+        <span>contact: mbutora(at)gmail.com</span>
       </div>
       <div class="col-6 text-right">
-        <span>last update: {{ dateInfo | date: "y.MM.dd HH:mm" }}</span>
+        <span>last update: {{ lastModified | date: "dd.MM.yyyy HH:mm" }}</span>
       </div>
     </div>
   </div>
 </footer>
-
-

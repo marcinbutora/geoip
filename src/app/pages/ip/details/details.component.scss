@@ -1,22 +1,26 @@
 .ip-card {
   max-width: 400px;
-  padding: 0.5rem;
-  text-align: center;
+  padding: 0.1rem;
+  text-align: left;
   position: absolute;
-  top: 12%;
-  left: 2%;
-  transform: translate(-2%);
-  z-index: 10;
-  line-height: 1.2rem;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%);
+  line-height: 1.3rem;
   width: 50%;
-  box-shadow: 1px 1px 10px;
+  box-shadow: 1px 1px 5px;
 }
 
-.card-img {
-  width: 40px;
-  margin: 0 auto;
+img.flag {
+  padding-right: 0.25rem;
+  width: 3rem;
 }
 
+img {
+  width: 2rem;
+  height: 1rem;
+  object-fit: cover;
+}
 h6 {
   font-weight: normal;
 }

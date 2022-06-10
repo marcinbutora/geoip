@@ -1,23 +1,30 @@
 <div class="card ip-card">
-  <img class="card-img" [src]="getFlag()" alt="Flag" />
   <div class="card-body">
-    <h5 class="card-title">{{ data?.ip }}</h5>
-    <h6>
-      {{ data?.city }} ({{ data?.country_name }}, {{ data?.country }}), capital:
-      {{ data?.country_capital }}
-    </h6>
+    <h4 class="card-title">
+      <img class="float-left mx-auto flag" [src]="getFlag()" alt="Flag" />
+      {{ data?.ip }}
+    </h4>
+    <p>
+      <small
+        >{{ data?.city }} ({{ data?.country_name }}, {{ data?.country }}),
+        <b>capital:</b>
+        {{ data?.country_capital }}
+      </small>
+    </p>
     <p class="card-text">
-      Currency: {{ data?.currency }} ({{ data?.currency_name }})<br />
-      <span *ngIf="data?.org">ISP Provider: {{ data?.org }}<br /></span>
-      GPS: {{ data?.latitude }}, {{ data?.longitude }}<br />
+      <b>Currency:</b> {{ data?.currency }} ({{ data?.currency_name }})<br />
+      <span *ngIf="data?.org"><b>ISP Provider:</b> {{ data?.org }}<br /></span>
+      <b>GPS:</b> {{ data?.latitude }}, {{ data?.longitude }}<br />
       <img
         [src]="getWeatherIcon()"
         title="{{weather?.weather?.[0]?.description}}"
         alt="{{weather?.weather?.[0]?.description}}"
-      />
-      Temp: {{ weather?.main?.temp }}<sup>o</sup>C Feels like:
-      {{ weather?.main?.feels_like }}<sup>o</sup>C<br />
+      /><b>Temp:</b> {{ weather?.main?.temp }}<sup>o</sup>C <b>Feels like:</b>
+      {{ weather?.main?.feels_like }}<sup>o</sup>C
     </p>
-    <p>Local date and time: <br />{{ timezone?.formatted }}</p>
+    <p>
+      <b>Local date and time:</b>
+      {{ timezone?.formatted | date: "dd.MM.YYYY HH:mm" }}
+    </p>
   </div>
 </div>

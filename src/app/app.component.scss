@@ -3,3 +3,18 @@ body {
   padding: 0px;
   box-sizing: border-box;
 }
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(161, 190, 14, 0.5);
+}
+
+nav > a {
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #000;
+}
