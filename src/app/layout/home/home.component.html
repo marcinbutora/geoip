@@ -45,7 +45,16 @@
         ngModel="{{ lng }}"
       />
     </div>
-    <button type="submit" class="btn btn-primary" (click)="onCheck()">
+    <div class="alert alert-warning mt-1" *ngIf="!lat">
+      For retrieved ip address (<b>{{ ipGet }}</b
+      >) localization is not available!
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      (click)="onCheck()"
+      [disabled]="!lat"
+    >
       Display IP address on map
     </button>
   </form>
