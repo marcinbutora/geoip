@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { IpDataService } from 'src/app/pages/ip/ip-data.service';
-import { IP } from 'src/app/pages/ip/ip-model/ip';
 
 @Component({
   selector: 'app-home',

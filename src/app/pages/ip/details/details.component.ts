@@ -25,18 +25,4 @@ export class DetailsComponent {
     const weatherIconFile = this.weather?.weather?.[0]?.icon;
     return `https://openweathermap.org/img/w/${weatherIconFile}.png`;
   };
-
-  convertNumberToDate = (numberToConvert: number) => {
-    let changeTimestamp = new Date(numberToConvert * 1000);
-    let hours = changeTimestamp.getHours();
-    let minutes = changeTimestamp.getUTCMinutes();
-    let year = changeTimestamp.getFullYear();
-    let day = changeTimestamp.getDate();
-    let month = changeTimestamp.getMonth() + 1;
-    let ampm = hours >= 12 ? 'AM' : 'PM';
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    let converted = `${year}/${month}/${day} ${hours}:${minutes} ${ampm}`;
-    return converted;
-  };
 }

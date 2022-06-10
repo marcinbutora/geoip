@@ -7,8 +7,6 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  isCollapsed = true;
-
   constructor(private title: Title) {}
 
   ngOnInit() {

@@ -5,7 +5,6 @@ import { HomeComponent } from './layout/home/home.component';
 
 export const enum RoutesLinks {
   ipGetData = 'ip/:ip/:lat/:lon',
-  ipData = 'ip/:ip',
   empty = '',
   ip = 'ip',
 }
@@ -13,12 +12,6 @@ export const enum RoutesLinks {
 const routes: Routes = [
   { path: RoutesLinks.ipGetData, component: IpInfoComponent },
   { path: RoutesLinks.empty, component: HomeComponent },
-  {
-    path: RoutesLinks.ipData,
-    pathMatch: 'full',
-    redirectTo: RoutesLinks.ipGetData,
-  },
-  { path: RoutesLinks.empty, pathMatch: 'full', redirectTo: '/' },
   { path: '**', redirectTo: RoutesLinks.ip },
 ];
 

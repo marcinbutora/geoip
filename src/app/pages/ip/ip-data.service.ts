@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, ObservableInput } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IP } from './ip-model/ip';
 import * as mapboxgl from 'mapbox-gl';
 import { Map, Marker } from 'mapbox-gl';
 import { IpClient } from './ip-model/ipclient';
 import { IpWeather } from './ip-model/ipweather';
-import { environment } from 'src/environments/environment';
 import { IpTimeZone } from './ip-model/iptimezone';
 
 @Injectable({
