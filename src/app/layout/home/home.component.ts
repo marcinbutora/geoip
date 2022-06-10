@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { IpDataService } from 'src/app/pages/ip/ip-data.service';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +9,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  ipGet: string = '';
+
   ipForm = new FormGroup({
     ip: new FormControl('', Validators.required),
   });
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private service: IpDataService) {
+    this.ipGet = '';
+  }
+
+  ngOnInit(): void {
+    this.service.getClientIP().subscribe((v) => (this.ipGet = v.ip));
+  }
 
   onCheck = () => {
     this.router.navigate([`/ip/${this.ipForm.controls['ip'].value}`]);

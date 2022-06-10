@@ -9,6 +9,7 @@
         id="ip"
         formControlName="ip"
         placeholder="Enter in format: X.X.X.X"
+        ngModel="{{ ipGet }}"
       />
       <small *ngIf="isFormNotValid()">Please correct field above!</small>
     </div>
