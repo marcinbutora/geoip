@@ -16,6 +16,8 @@ export class IpInfoComponent implements OnInit {
   @Input() data: IP | undefined;
   @Input() weatherData: IpWeather | undefined;
   @Input() timezoneData: IpTimeZone | undefined;
+  @Input() isLoading: boolean = false;
+
   timezone: string = '';
   ip: string = '';
   lat: number = 0;
@@ -32,6 +34,7 @@ export class IpInfoComponent implements OnInit {
     this.ip = this.route.snapshot.params['ip'];
     this.lat = this.route.snapshot.params['lat'];
     this.lon = this.route.snapshot.params['lon'];
+    this.isLoading = true;
 
     this.ipService.getDataByIP(this.ip).subscribe((val) => {
       this.lat = val.latitude;
@@ -44,6 +47,7 @@ export class IpInfoComponent implements OnInit {
       this.ipService.getTimeZoneByLatAndLon(this.lat, this.lon)
     ).subscribe(([responseData, responseWeather, responseTimezone]) => {
       this.data = responseData;
+      this.isLoading = false;
       this.title.setTitle(
         this.setTitleForPage(
           responseData.ip,

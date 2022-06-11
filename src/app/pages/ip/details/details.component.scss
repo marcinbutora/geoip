@@ -16,6 +16,14 @@ img.flag {
   width: 3rem;
 }
 
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 3rem;
+  font-weight: bolder;
+}
+
 img.icon {
   width: 1.6rem;
   height: 0.6rem;

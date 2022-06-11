@@ -12,6 +12,7 @@ export class DetailsComponent {
   @Input() data: IP | undefined;
   @Input() weather: IpWeather | undefined;
   @Input() timezone: IpTimeZone | undefined;
+  @Input() isLoading: boolean = false;
 
   getFlag = () => {
     const flagFile = this.data?.country_tld.replace('.', '');

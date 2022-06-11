@@ -1,5 +1,6 @@
 <div class="card ip-card">
-  <div class="card-body">
+  <div *ngIf="isLoading" class="loading">Loading data, please wait ...</div>
+  <div class="card-body" *ngIf="!isLoading">
     <h4 class="card-title">
       <img class="float-left mx-auto flag" [src]="getFlag()" alt="Flag" />
       {{ data?.ip }}
