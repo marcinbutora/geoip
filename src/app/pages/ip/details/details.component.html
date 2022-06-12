@@ -1,23 +1,8 @@
 <div class="card ip-card">
   <app-spinner [isLoading]="isLoading"></app-spinner>
   <div class="card-body" *ngIf="!isLoading">
-    <h4 class="card-title">
-      <img class="float-left mx-auto flag" [src]="getFlag()" alt="Flag" />
-      {{ data?.ip }}
-    </h4>
-    <p>
-      <small
-        >{{ data?.city }} ({{ data?.country_name }}, {{ data?.country }}),
-        <b>capital:</b>
-        {{ data?.country_capital }}
-      </small>
-    </p>
-    <p class="card-text">
-      <b>Currency:</b> {{ data?.currency }} ({{ data?.currency_name }})<br />
-      <span *ngIf="data?.org"><b>ISP Provider:</b> {{ data?.org }}<br /></span>
-      <b>GPS:</b> {{ data?.latitude }}, {{ data?.longitude }}<br />
-      <app-weather [weather]="weather"></app-weather>
-    </p>
+    <app-data [data]="data"></app-data>
+    <app-weather [weather]="weather"></app-weather>
     <app-timezone [timezone]="timezone"></app-timezone>
   </div>
 </div>

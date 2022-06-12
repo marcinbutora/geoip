@@ -13,12 +13,4 @@ export class DetailsComponent {
   @Input() weather: IpWeather | undefined;
   @Input() timezone: IpTimeZone | undefined;
   @Input() isLoading: boolean = false;
-
-  getFlag = () => {
-    const flagFile = this.data?.country_tld.replace('.', '');
-    if (flagFile == 'uk') {
-      return `https://flagcdn.com/40x30/gb.png`;
-    }
-    return `https://flagcdn.com/40x30/${flagFile}.png`;
-  };
 }
