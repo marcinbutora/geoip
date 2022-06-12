@@ -1,25 +1,21 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule, Title} from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { BrowserModule, Title } from '@angular/platform-browser';
 
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {HttpClientModule} from "@angular/common/http";
-import {CommonModule} from "@angular/common";
-import {IpInfoComponent} from "./pages/ip/ip-info/ip-info.component";
-import {FooterComponent} from './layout/footer/footer.component';
-import {HomeComponent} from './layout/home/home.component';
-import {IpModule} from "./pages/ip/ip.module";
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ReactiveFormsModule} from "@angular/forms";
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { IpInfoComponent } from './pages/ip/ip-info/ip-info.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HomeComponent } from './layout/home/home.component';
+import { IpModule } from './pages/ip/ip.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    IpInfoComponent,
-    FooterComponent,
-    HomeComponent
-  ],
+  declarations: [AppComponent, IpInfoComponent, FooterComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,10 +24,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     IpModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [Title],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}
