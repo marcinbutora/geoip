@@ -18,9 +18,6 @@
       <b>GPS:</b> {{ data?.latitude }}, {{ data?.longitude }}<br />
       <app-weather [weather]="weather"></app-weather>
     </p>
-    <p>
-      <b>Local date and time:</b>
-      {{ timezone?.formatted | date: "dd.MM.YYYY HH:mm" }}
-    </p>
+    <app-timezone [timezone]="timezone"></app-timezone>
   </div>
 </div>
