@@ -1,5 +1,10 @@
 <div class="card ip-card">
-  <div *ngIf="isLoading" class="loading">Loading data, please wait ...</div>
+  <div
+    *ngIf="isLoading"
+    class="d-flex justify-content-center text-success loading"
+  >
+    <div class="spinner-border" role="status"></div>
+  </div>
   <div class="card-body" *ngIf="!isLoading">
     <h4 class="card-title">
       <img class="float-left mx-auto flag" [src]="getFlag()" alt="Flag" />
