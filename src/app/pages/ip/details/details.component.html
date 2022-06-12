@@ -16,13 +16,7 @@
       <b>Currency:</b> {{ data?.currency }} ({{ data?.currency_name }})<br />
       <span *ngIf="data?.org"><b>ISP Provider:</b> {{ data?.org }}<br /></span>
       <b>GPS:</b> {{ data?.latitude }}, {{ data?.longitude }}<br />
-      <img
-        [src]="getWeatherIcon()"
-        title="{{weather?.weather?.[0]?.description}}"
-        alt="{{weather?.weather?.[0]?.description}}"
-        class="icon"
-      /><b>Temp:</b> {{ weather?.main?.temp }}<sup>o</sup>C <b>Feels like:</b>
-      {{ weather?.main?.feels_like }}<sup>o</sup>C
+      <app-weather [weather]="weather"></app-weather>
     </p>
     <p>
       <b>Local date and time:</b>

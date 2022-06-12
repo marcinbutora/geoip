@@ -1,0 +1,7 @@
+<img
+  [src]="getWeatherIcon()"
+  title="{{weather?.weather?.[0]?.description}}"
+  alt="{{weather?.weather?.[0]?.description}}"
+  class="icon"
+/><b>Temp:</b> {{ weather?.main?.temp }}<sup>o</sup>C <b>Feels like:</b>
+{{ weather?.main?.feels_like }}<sup>o</sup>C

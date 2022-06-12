@@ -21,9 +21,4 @@ export class DetailsComponent {
     }
     return `https://flagcdn.com/40x30/${flagFile}.png`;
   };
-
-  getWeatherIcon = () => {
-    const weatherIconFile = this.weather?.weather?.[0]?.icon;
-    return `https://openweathermap.org/img/w/${weatherIconFile}.png`;
-  };
 }

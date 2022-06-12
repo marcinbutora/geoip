@@ -12,7 +12,6 @@ import { IpModule } from './pages/ip/ip.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 @NgModule({
   declarations: [AppComponent, IpInfoComponent, FooterComponent, HomeComponent],
