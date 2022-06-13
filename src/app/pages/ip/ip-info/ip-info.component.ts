@@ -13,7 +13,7 @@ import { zip } from 'rxjs';
   styleUrls: ['./ip-info.component.scss'],
 })
 export class IpInfoComponent implements OnInit {
-  @Input() data: IP | undefined;
+  @Input() data!: IP;
   @Input() weatherData: IpWeather | undefined;
   @Input() timezoneData: IpTimeZone | undefined;
   @Input() isLoading: boolean = false;

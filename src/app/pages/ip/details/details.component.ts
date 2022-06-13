@@ -9,7 +9,7 @@ import { IpWeather } from '../ip-model/ipweather';
   styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent {
-  @Input() data: IP | undefined;
+  @Input() data!: IP;
   @Input() weather: IpWeather | undefined;
   @Input() timezone: IpTimeZone | undefined;
   @Input() isLoading: boolean = false;

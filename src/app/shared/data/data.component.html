@@ -1,16 +1,24 @@
 <h4 class="card-title">
   <img class="float-left mx-auto flag" [src]="getFlag()" alt="Flag" />
-  {{ data?.ip }}
+  {{ data.ip }}
+  <button
+    class="btn btn-outline-primary btn-sm"
+    (click)="copyToClipboard(data.ip)"
+    [disabled]="isCopied"
+  >
+    <span *ngIf="!isCopied">Copy</span>
+    <span *ngIf="isCopied">Copied <strong>👍</strong></span>
+  </button>
 </h4>
 <p>
   <small
-    >{{ data?.city }} ({{ data?.country_name }}, {{ data?.country }}),
+    >{{ data.city }} ({{ data.country_name }}, {{ data.country }}),
     <b>capital:</b>
-    {{ data?.country_capital }}
+    {{ data.country_capital }}
   </small>
 </p>
 <p class="card-text">
-  <b>Currency:</b> {{ data?.currency }} ({{ data?.currency_name }})<br />
-  <span *ngIf="data?.org"><b>ISP Provider:</b> {{ data?.org }}<br /></span>
-  <b>GPS:</b> {{ data?.latitude }}, {{ data?.longitude }}<br />
+  <b>Currency:</b> {{ data.currency }} ({{ data.currency_name }})<br />
+  <span *ngIf="data.org"><b>ISP Provider:</b> {{ data.org }}<br /></span>
+  <b>GPS:</b> {{ data.latitude }}, {{ data.longitude }}<br />
 </p>
