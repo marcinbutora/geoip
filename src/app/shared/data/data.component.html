@@ -1,14 +1,7 @@
 <h4 class="card-title">
   <img class="float-left mx-auto flag" [src]="getFlag()" alt="Flag" />
   {{ data.ip }}
-  <button
-    class="btn btn-outline-primary btn-sm"
-    (click)="copyToClipboard(data.ip)"
-    [disabled]="isCopied"
-  >
-    <span *ngIf="!isCopied">Copy</span>
-    <span *ngIf="isCopied">Copied <strong>👍</strong></span>
-  </button>
+  <app-copy-button [data]="data"></app-copy-button>
 </h4>
 <p>
   <small

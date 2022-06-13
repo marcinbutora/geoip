@@ -1,0 +1,8 @@
+<button
+  class="btn btn-outline-primary btn-sm"
+  (click)="copyToClipboard(data.ip)"
+  [disabled]="isCopied"
+>
+  <span *ngIf="!isCopied">Copy</span>
+  <span *ngIf="isCopied">Copied! <strong>👍</strong></span>
+</button>

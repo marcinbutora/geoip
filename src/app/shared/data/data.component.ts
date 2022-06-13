@@ -9,8 +9,6 @@ import { Clipboard } from '@angular/cdk/clipboard';
 })
 export class DataComponent {
   @Input() data!: IP;
-  ipToCopy: string = '';
-  isCopied: boolean = false;
 
   constructor(private service: Clipboard) {}
 
@@ -20,10 +18,5 @@ export class DataComponent {
       return `https://flagcdn.com/40x30/gb.png`;
     }
     return `https://flagcdn.com/40x30/${flagFile}.png`;
-  };
-
-  copyToClipboard = (text: string) => {
-    this.service.copy(text);
-    this.isCopied = true;
   };
 }
