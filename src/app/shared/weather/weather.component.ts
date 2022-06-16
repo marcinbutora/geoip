@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import * as moment from 'moment';
 import { IpWeather } from 'src/app/pages/ip/ip-model/ipweather';
 
 @Component({
@@ -15,9 +16,10 @@ export class WeatherComponent {
   };
 
   convert = (dateString: number, offset: number) => {
-    const unixTime = new Date((dateString + offset) * 1000);
-    const hours = unixTime.getHours();
-    const minutes = unixTime.getMinutes();
-    return `${hours}:${minutes}`;
+    const unixTime = moment
+      .utc(dateString, 'X')
+      .add(offset, 'seconds')
+      .format('hh:mm a');
+    return `${unixTime}`;
   };
 }
