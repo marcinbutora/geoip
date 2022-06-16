@@ -7,10 +7,17 @@ import { IpWeather } from 'src/app/pages/ip/ip-model/ipweather';
   styleUrls: ['./weather.component.scss'],
 })
 export class WeatherComponent {
-  @Input() weather: IpWeather | undefined;
+  @Input() weather!: IpWeather;
 
   getWeatherIcon = () => {
     const weatherIconFile = this.weather?.weather?.[0]?.icon;
     return `https://openweathermap.org/img/w/${weatherIconFile}.png`;
+  };
+
+  convert = (dateString: number, offset: number) => {
+    const unixTime = new Date((dateString + offset) * 1000);
+    const hours = unixTime.getHours();
+    const minutes = unixTime.getMinutes();
+    return `${hours}:${minutes}`;
   };
 }

@@ -7,3 +7,9 @@
   {{ weather?.main?.pressure }} hPa&nbsp; <b>Humidity:</b>
   {{ weather?.main?.humidity }}%
 </p>
+<p>
+  <b>Sunrise:</b>
+  {{ convert(weather.sys.sunrise, weather.timezone) }}
+  <b>Sunset:</b>
+  {{ convert(weather.sys.sunset, weather.timezone) }}
+</p>

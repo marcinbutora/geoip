@@ -14,7 +14,7 @@ import { zip } from 'rxjs';
 })
 export class IpInfoComponent implements OnInit {
   @Input() data!: IP;
-  @Input() weatherData: IpWeather | undefined;
+  @Input() weatherData!: IpWeather;
   @Input() timezoneData: IpTimeZone | undefined;
   @Input() isLoading: boolean = false;
 
