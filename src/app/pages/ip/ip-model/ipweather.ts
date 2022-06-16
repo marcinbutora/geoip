@@ -35,8 +35,8 @@ export interface Sys {
   type: number;
   id: number;
   country: string;
-  sunrise: number;
-  sunset: number;
+  sunrise: string;
+  sunset: string;
 }
 
 export interface IpWeather {

@@ -15,7 +15,7 @@ export class WeatherComponent {
     return `https://openweathermap.org/img/w/${weatherIconFile}.png`;
   };
 
-  convert = (dateString: number, offset: number) => {
+  convert = (dateString: string, offset: number) => {
     const unixTime = moment
       .utc(dateString, 'X')
       .add(offset, 'seconds')
