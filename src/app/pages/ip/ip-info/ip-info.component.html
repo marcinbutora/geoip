@@ -1,7 +1,9 @@
 <div id="map" class="full"></div>
-<app-details
-  [data]="data"
-  [weather]="weatherData"
-  [timezone]="timezoneData"
-  [isLoading]="isLoading"
-></app-details>
+<div class="card ip-card">
+  <app-spinner [isLoading]="isLoading"></app-spinner>
+  <div class="card-body" *ngIf="!isLoading">
+    <app-data [data]="data"></app-data>
+    <app-weather [weather]="weatherData"></app-weather>
+    <app-timezone [timezone]="timezoneData"></app-timezone>
+  </div>
+</div>

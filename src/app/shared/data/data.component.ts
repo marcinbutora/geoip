@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { IP } from 'src/app/pages/ip/ip-model/ip';
-import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-data',
@@ -9,8 +8,6 @@ import { Clipboard } from '@angular/cdk/clipboard';
 })
 export class DataComponent {
   @Input() data!: IP;
-
-  constructor(private service: Clipboard) {}
 
   getFlag = () => {
     const flagFile = this.data.country_tld.replace('.', '');

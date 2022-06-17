@@ -20,6 +20,7 @@ export class WeatherComponent {
       .utc(dateString, 'X')
       .add(offset, 'seconds')
       .format('hh:mm a');
+    console.log('unixtime', unixTime);
     return `${unixTime}`;
   };
 }
