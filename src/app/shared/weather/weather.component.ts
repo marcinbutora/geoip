@@ -22,17 +22,4 @@ export class WeatherComponent {
       .format('hh:mm a');
     return `${unixTime}`;
   };
-
-  // calcDiffTime = (dateString: string, offset: number) => {
-  //   const actualTime = moment.utc(Date.now()).format('hh:mm');
-  //   const unixTime = moment
-  //     .utc(dateString, 'X')
-  //     .add(offset, 'seconds')
-  //     .format('hh:mm');
-  //   const result = moment
-  //     .utc(moment(actualTime, 'hh:mm').diff(moment(unixTime, 'hh:mm')))
-  //     .format('hh:mm');
-  //   console.log('result', result);
-  //   return result;
-  // };
 }
