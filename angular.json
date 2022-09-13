@@ -108,5 +108,8 @@
       }
     }
   },
-  "defaultProject": "geoip"
+  "defaultProject": "geoip",
+  "cli": {
+    "analytics": false
+  }
 }
