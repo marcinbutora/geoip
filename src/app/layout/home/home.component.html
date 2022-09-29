@@ -10,7 +10,7 @@
         id="ip"
         formControlName="ip"
         placeholder="Enter in format: X.X.X.X"
-        ngModel="{{ ipGet }}"
+        ngModel="{{ ipAddressGetFromApi }}"
         (ngModelChange)="ipGetAndChange($event)"
       />
       <p><small *ngIf="isFormNotValid()">Please correct field above!</small></p>
@@ -21,40 +21,40 @@
       >
         Show my IP address
       </button>
-      <p>
+      <p class="info">
         Latitude below is based on
-        <span *ngIf="!ipGet">your</span
-        ><span *ngIf="ipGet">above retrieved</span> IP address
+        <span *ngIf="!ipAddressGetFromApi">your</span
+        ><span *ngIf="ipAddressGetFromApi">above retrieved</span> IP address
       </p>
       <input
         type="text"
         name="lat"
         class="form-control"
         formControlName="lat"
-        ngModel="{{ lat }}"
+        ngModel="{{ latitude }}"
       />
-      <p>
+      <p class="info">
         Longitude below is based on
-        <span *ngIf="!ipGet">your</span
-        ><span *ngIf="ipGet">above retrieved</span> IP address
+        <span *ngIf="!ipAddressGetFromApi">your</span
+        ><span *ngIf="ipAddressGetFromApi">above retrieved</span> IP address
       </p>
       <input
         type="text"
         name="lng"
         class="form-control"
         formControlName="lng"
-        ngModel="{{ lng }}"
+        ngModel="{{ longitude }}"
       />
     </div>
-    <div class="alert alert-warning mt-1" *ngIf="!lat">
-      For retrieved ip address (<b>{{ ipGet }}</b
+    <div class="alert alert-warning mt-1" *ngIf="!latitude">
+      For retrieved ip address (<b>{{ ipAddressGetFromApi }}</b
     >) localization is not available!
     </div>
     <button
       type="submit"
       class="btn btn-primary"
       (click)="onCheck()"
-      [disabled]="!lat"
+      [disabled]="!latitude"
     >
       Display IP address on map
     </button>

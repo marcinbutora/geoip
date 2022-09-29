@@ -9,9 +9,9 @@ import { IpDataService } from 'src/app/pages/ip/ip-data.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  ipGet: string = '';
-  lat: number = 0;
-  lng: number = 0;
+  ipAddressGetFromApi: string = '';
+  latitude: number = 0;
+  longitude: number = 0;
 
   ipForm = new FormGroup({
     ip: new FormControl('', Validators.required),
@@ -20,28 +20,28 @@ export class HomeComponent {
   });
 
   constructor(private router: Router, private service: IpDataService) {
-    this.ipGet = '';
+    this.ipAddressGetFromApi = '';
   }
 
   onCheck = () => {
-    this.router.navigate([`/ip/${this.ipGet}/${this.lat}/${this.lng}`]);
+    this.router.navigate([`/ip/${this.ipAddressGetFromApi}/${this.latitude}/${this.longitude}`]);
   };
 
   isFormNotValid = (): boolean =>
     this.ipForm.controls['ip'].invalid && this.ipForm.controls['ip'].touched;
 
   ipGetAndChange = (ip: string) => {
-    this.ipGet = ip;
-    this.service.getDataByIP(this.ipGet).subscribe((val) => {
-      this.lat = val.latitude;
-      this.lng = val.longitude;
+    this.ipAddressGetFromApi = ip;
+    this.service.getDataByIP(this.ipAddressGetFromApi).subscribe((val) => {
+      this.latitude = val.latitude;
+      this.longitude = val.longitude;
       this.service.displayMap(val);
     });
   };
 
   getMyIP = () => {
     this.service.getClientIP().subscribe((val) => {
-      this.ipGet = val.ip;
+      this.ipAddressGetFromApi = val.ip;
     });
   };
 }
