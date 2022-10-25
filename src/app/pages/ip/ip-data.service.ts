@@ -13,7 +13,7 @@ import {IpTimeZone} from './ip-model/iptimezone';
 })
 export class IpDataService {
   map!: mapboxgl.Map;
-  marker!: mapboxgl.Marker;
+  markerToSet!: mapboxgl.Marker;
   popup!: mapboxgl.Popup;
 
   private readonly apiUrl: string = 'https://ipapi.co/';
@@ -41,7 +41,7 @@ export class IpDataService {
     this.http.get<IpTimeZone>(`${this.apiTimeZoneUrl}?key=${this.apiTimeZoneKey}&lat=${lat}&lng=${lng}&by=position&format=json`);
 
   addMarkerToMap = (data: IP, map: mapboxgl.Map) => {
-    return this.marker = new Marker()
+    return this.markerToSet = new Marker()
       .setLngLat([data.longitude, data.latitude])
       .addTo(map);
   }
