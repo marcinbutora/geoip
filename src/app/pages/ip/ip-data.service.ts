@@ -41,10 +41,10 @@ export class IpDataService {
     this.http.get<IpTimeZone>(`${this.apiTimeZoneUrl}?key=${this.apiTimeZoneKey}&lat=${lat}&lng=${lng}&by=position&format=json`);
 
   addMarkerToMap = (data: IP, map: mapboxgl.Map) => {
-    this.marker = new Marker()
+    return this.marker = new Marker()
       .setLngLat([data.longitude, data.latitude])
       .addTo(map);
-  };
+  }
 
   displayMap = (data: IP) =>
     new Map({
