@@ -35,8 +35,8 @@
       />
       <p class="info">
         Longitude below is based on
-        <span *ngIf="!ipAddressGetFromApi">your</span
-        ><span *ngIf="ipAddressGetFromApi">above retrieved</span> IP address
+        <span *ngIf="!ipAddressGetFromApi">your</span>
+        <span *ngIf="ipAddressGetFromApi">above retrieved</span> IP address
       </p>
       <input
         type="text"
@@ -47,8 +47,7 @@
       />
     </div>
     <div class="alert alert-warning mt-1" *ngIf="!latitude">
-      For retrieved ip address (<b>{{ ipAddressGetFromApi }}</b
-    >) localization is not available!
+      For retrieved ip address (<b>{{ ipAddressGetFromApi }}</b>) localization is not available!
     </div>
     <button
       type="button"
