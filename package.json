@@ -2,6 +2,8 @@
   "name": "geoip",
   "version": "0.0.0",
   "scripts": {
+    "e2e": "ng e2e",
+    "e2e:test": "./node_modules/.bin/nightwatch --env 'chrome' --config './nightwatch.conf.js'",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -40,8 +42,10 @@
     "@angular-devkit/build-angular": "^13.2.4",
     "@angular/cli": "^14.0.1",
     "@angular/compiler-cli": "~13.1.0",
+    "@nightwatch/schematics": "^1.0.0",
     "@types/google.maps": "^3.47.4",
     "@types/jasmine": "~3.10.0",
+    "@types/nightwatch": "2.3.12",
     "@types/node": "^12.11.1",
     "@wdio/jasmine-framework": "^7.24.1",
     "@wdio/local-runner": "^7.24.1",
@@ -54,6 +58,7 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "nightwatch": "2.0.0-beta.3",
     "ts-node": "^10.9.1",
     "typescript": "~4.5.2",
     "wdio-chromedriver-service": "^7.3.2"
