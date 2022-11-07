@@ -35,6 +35,10 @@ small {
   height: 100vh;
 }
 
+.city-name {
+  color: gray;
+  font-size: 0.8rem;
+}
 @media (max-width: 640px) {
   form {
     display: flex;

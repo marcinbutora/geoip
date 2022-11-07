@@ -12,6 +12,8 @@ export class HomeComponent {
   ipAddressGetFromApi: string = '';
   latitude: number = 0;
   longitude: number = 0;
+  city: string = "";
+  country: string = "";
 
   ipForm = new FormGroup({
     ip: new FormControl('', Validators.required),
@@ -35,6 +37,8 @@ export class HomeComponent {
     this.service.getDataByIP(this.ipAddressGetFromApi).subscribe((val) => {
       this.latitude = val.latitude;
       this.longitude = val.longitude;
+      this.city = val.city;
+      this.country = val.country;
       this.service.displayMap(val);
     });
   };

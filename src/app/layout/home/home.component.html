@@ -13,6 +13,7 @@
         ngModel="{{ ipAddressGetFromApi }}"
         (ngModelChange)="ipGetAndChange($event)"
       />
+      <p><small *ngIf="ipAddressGetFromApi" class="city-name">{{city}} ({{country}})</small></p>
       <p><small *ngIf="isFormNotValid()">Please correct field above!</small></p>
       <button
         type="submit"
