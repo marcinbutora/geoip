@@ -11,9 +11,8 @@ export class DataComponent {
 
   getFlag = () => {
     const flagFile = this.data.country_tld.replace('.', '');
-    if (flagFile == 'uk') {
-      return `https://flagcdn.com/40x30/gb.png`;
-    }
-    return `https://flagcdn.com/40x30/${flagFile}.png`;
+    flagFile == 'uk'
+      ? `https://flagcdn.com/40x30/gb.png`
+      : `https://flagcdn.com/40x30/${flagFile}.png`;
   };
 }
