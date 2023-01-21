@@ -9,7 +9,7 @@ import { IP } from 'src/app/pages/ip/ip-model/ip';
 export class DataComponent {
   @Input() data!: IP;
 
-  getFlag = () => {
+  getFlagIconSource = () => {
     const flagFile = this.data.country_tld.replace('.', '');
     return flagFile == 'uk'
       ? `https://flagcdn.com/40x30/gb.png`
