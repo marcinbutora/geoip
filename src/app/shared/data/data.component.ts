@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IP } from 'src/app/pages/ip/ip-model/ip';
 
 @Component({
@@ -11,7 +11,7 @@ export class DataComponent {
 
   getFlag = () => {
     const flagFile = this.data.country_tld.replace('.', '');
-    flagFile == 'uk'
+    return flagFile == 'uk'
       ? `https://flagcdn.com/40x30/gb.png`
       : `https://flagcdn.com/40x30/${flagFile}.png`;
   };
