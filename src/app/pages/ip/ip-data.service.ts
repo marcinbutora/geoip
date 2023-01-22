@@ -7,7 +7,6 @@ import { Map, Marker } from 'mapbox-gl';
 import { IpClient } from './ip-model/ipclient';
 import { IpWeather } from './ip-model/ipweather';
 import { IpTimeZone } from './ip-model/iptimezone';
-import { style } from '@angular/animations';
 
 @Injectable({
   providedIn: 'root',
