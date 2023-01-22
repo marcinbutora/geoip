@@ -7,6 +7,7 @@ import { Map, Marker } from 'mapbox-gl';
 import { IpClient } from './ip-model/ipclient';
 import { IpWeather } from './ip-model/ipweather';
 import { IpTimeZone } from './ip-model/iptimezone';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -59,8 +60,8 @@ export class IpDataService {
   displayMap = (data: IP) =>
     new Map({
       container: 'map',
-      style: this.styleOfMap,
-      zoom: this.defaultZoom,
+      style: environment.styleOfMap,
+      zoom: environment.defaultZoom,
       center: [data.longitude, data.latitude],
     });
 }
