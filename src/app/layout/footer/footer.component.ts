@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   author: string = 'Marcin Butora';
+  actualYear = new Date().getFullYear();
 }
