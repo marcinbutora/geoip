@@ -3,9 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
-  styleOfMap: 'mapbox://styles/mapbox/streets-v11',
-  defaultZoom: 12,
+  production: false,
 };
 
 /*

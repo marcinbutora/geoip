@@ -60,8 +60,8 @@ export class IpDataService {
   displayMap = (data: IP) =>
     new Map({
       container: 'map',
-      style: environment.styleOfMap,
-      zoom: environment.defaultZoom,
+      style: 'mapbox://styles/mapbox/streets-v11',
+      zoom: 12,
       center: [data.longitude, data.latitude],
     });
 }
