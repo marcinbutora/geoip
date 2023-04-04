@@ -15,11 +15,9 @@ export class WeatherComponent {
     return `https://openweathermap.org/img/w/${weatherIconFile}.png`;
   };
 
-  convert = (dateString: string, offset: number) => {
-    const unixTime = moment
+  convert = (dateString: string, offset: number) => 
+    moment
       .utc(dateString, 'X')
       .add(offset, 'seconds')
       .format('hh:mm a');
-    return `${unixTime}`;
-  };
 }
