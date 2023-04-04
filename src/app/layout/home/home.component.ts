@@ -25,9 +25,7 @@ export class HomeComponent {
     this.ipAddressGetFromApi = '';
   }
 
-  onCheck = () => {
-    this.router.navigate([`/ip/${this.ipAddressGetFromApi}/${this.latitude}/${this.longitude}`]);
-  };
+  onCheck = () => this.router.navigate([`/ip/${this.ipAddressGetFromApi}/${this.latitude}/${this.longitude}`]);
 
   isFormNotValid = (): boolean =>
     this.ipForm.controls['ip'].invalid && this.ipForm.controls['ip'].touched;

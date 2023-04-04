@@ -6,7 +6,7 @@
     "e2e:test": "./node_modules/.bin/nightwatch --env 'chrome' --config './nightwatch.conf.js'",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --optimization",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
