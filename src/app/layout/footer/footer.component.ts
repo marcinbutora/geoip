@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
-  author: string = 'mbutora@gmail.com';
+  authorMail: string = 'mbutora@gmail.com';
   actualYear = new Date().getFullYear();
 }
