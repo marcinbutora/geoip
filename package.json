@@ -9,7 +9,7 @@
     "build": "ng build --optimization",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "install": "npm install --legacy-peer-deps"
+    "install": "npm install --legacy-peer-deps --force"
   },
   "private": true,
   "dependencies": {
