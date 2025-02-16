@@ -1,6 +1,6 @@
 <p>
-  <b>Temp:</b> {{ weather?.main?.temp }}<sup>o</sup>C <b>Feels like:</b>
-  {{ weather?.main?.feels_like }}<sup>o</sup>C
+  <b>Temp:</b> {{ weather?.main?.temp.toFixed(1) }}<sup>o</sup>C <b>Feels like:</b>
+  {{ weather?.main?.feels_like.toFixed(1) }}<sup>o</sup>C
 </p>
 <p>
   <b>Wind</b> {{ weather?.wind?.speed }} m/s <b>Pressure:</b>
