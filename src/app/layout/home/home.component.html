@@ -3,59 +3,31 @@
   <form [formGroup]="ipForm" class="form">
     <div class="form-group">
       <label for="ip">Enter IP address below:</label>
-      <input
-        type="text"
-        name="ip"
-        class="form-control"
-        id="ip"
-        formControlName="ip"
-        placeholder="Enter in format: X.X.X.X"
-        ngModel="{{ ipAddressGetFromApi }}"
-        (ngModelChange)="ipGetAndChange($event)"
-      />
+      <input type="text" name="ip" class="form-control" id="ip" formControlName="ip"
+        placeholder="Enter in format: X.X.X.X" ngModel="{{ ipAddressGetFromApi }}"
+        (ngModelChange)="ipGetAndChange($event)" />
       <p><small *ngIf="ipAddressGetFromApi" class="city-name">{{city}} ({{country}})</small></p>
       <p><small *ngIf="isFormNotValid()">Please correct field above!</small></p>
-      <button
-        type="submit"
-        class="btn btn-outline-success btn-sm"
-        (click)="getMyIP()"
-      >
+      <button type="submit" class="btn btn-outline-success btn-sm" (click)="getMyIP()">
         Show my IP address
       </button>
       <p class="info">
         Latitude below is based on
-        <span *ngIf="!ipAddressGetFromApi">your</span
-        ><span *ngIf="ipAddressGetFromApi">above retrieved</span> IP address
+        <span *ngIf="!ipAddressGetFromApi">your</span><span *ngIf="ipAddressGetFromApi">above retrieved</span> IP
+        address
       </p>
-      <input
-        type="text"
-        name="lat"
-        class="form-control"
-        formControlName="lat"
-        ngModel="{{ latitude }}"
-      />
+      <input type="text" name="lat" class="form-control test" formControlName="lat" ngModel="{{ latitude }}" />
       <p class="info">
         Longitude below is based on
         <span *ngIf="!ipAddressGetFromApi">your</span>
         <span *ngIf="ipAddressGetFromApi">above retrieved</span> IP address
       </p>
-      <input
-        type="text"
-        name="lng"
-        class="form-control"
-        formControlName="lng"
-        ngModel="{{ longitude }}"
-      />
+      <input type="text" name="lng" class="form-control" formControlName="lng" ngModel="{{ longitude }}" />
     </div>
     <div class="alert alert-warning mt-1" *ngIf="!latitude">
       For retrieved ip address (<b>{{ ipAddressGetFromApi }}</b>) localization is not available!
     </div>
-    <button
-      type="button"
-      class="btn btn-primary"
-      (click)="onCheck()"
-      [disabled]="!latitude"
-    >
+    <button type="button" class="btn btn-primary" (click)="onCheck()" [disabled]="!latitude">
       Display IP address on map
     </button>
   </form>
