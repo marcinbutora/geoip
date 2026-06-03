@@ -1,8 +1,12 @@
 <nav class="navbar navbar-dark">
-  <a class="navbar-brand" href="/">🌐 GeoIP</a>
-  <span class="navbar-text">{{ 'navSubtitle' | translate }}</span>
-  <a class="nav-link" (click)="openAboutModal(aboutModal)" href="javascript:void(0)">{{ 'navAbout' | translate }}</a>
-  <button class="btn-lang" (click)="toggleLang()">{{ currentLang === 'en' ? 'PL' : 'EN' }}</button>
+  <div class="d-flex align-items-center gap-2">
+    <a class="navbar-brand" href="/">🌐 GeoIP</a>
+    <span class="navbar-text">{{ 'navSubtitle' | translate }}</span>
+  </div>
+  <div class="d-flex align-items-center gap-2">
+    <a class="nav-link" (click)="openAboutModal(aboutModal)" href="javascript:void(0)">{{ 'navAbout' | translate }}</a>
+    <button class="btn-lang" (click)="toggleLang()">{{ currentLang === 'en' ? 'PL' : 'EN' }}</button>
+  </div>
 </nav>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
