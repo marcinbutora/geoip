@@ -18,6 +18,46 @@ body {
   height: 100vh;
 }
 
+.modal-content {
+  background: #1a1a2e;
+  color: #e0e0e0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-title {
+  color: #e94560;
+  font-weight: 700;
+}
+
+.modal-body h6 {
+  color: #e94560;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.modal-body li {
+  padding: 0.15rem 0;
+  font-size: 0.9rem;
+}
+
+.modal-body li::before {
+  content: "›";
+  color: #e94560;
+  margin-right: 0.5rem;
+}
+
+.modal-backdrop.show {
+  opacity: 0.6;
+}
+
 @media (max-width: 768px) {
   body {
     overflow: auto;

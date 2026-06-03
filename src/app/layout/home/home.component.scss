@@ -5,7 +5,7 @@
   bottom: 0;
   width: 380px;
   max-width: 40vw;
-  z-index: 500;
+  z-index: 900;
   background: rgba(15, 12, 41, 0.6);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -42,6 +42,11 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  flex: 1;
+}
+
+.home-form .btn-primary-custom {
+  margin-top: auto;
 }
 
 .input-group {
@@ -148,7 +153,7 @@
   justify-content: center;
   gap: 0.5rem;
   background: #e94560;
-  border: none;
+  border: 1px solid #e94560;
   border-radius: 8px;
   padding: 0.75rem;
   color: #fff;
@@ -163,7 +168,7 @@
 }
 
 .btn-primary-custom:disabled {
-  opacity: 0.35;
+  opacity: 0.7;
   cursor: default;
 }
 

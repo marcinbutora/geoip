@@ -1,7 +1,41 @@
 <nav class="navbar navbar-dark">
   <a class="navbar-brand" href="/">🌐 GeoIP</a>
   <span class="navbar-text">localize your IP address on Map!</span>
+  <a class="nav-link ms-auto" (click)="openAboutModal(aboutModal)" href="javascript:void(0)">About</a>
 </nav>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
 <app-cookie-consent></app-cookie-consent>
+
+<ng-template #aboutModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">🌐 About GeoIP</h4>
+    <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    <p><strong>GeoIP</strong> is a web application that allows you to localize any IP address on an interactive map and explore detailed information about its geographical location.</p>
+
+    <h6>Services used</h6>
+    <ul class="list-unstyled">
+      <li><strong>ipapi.co</strong> — IP geolocation data (city, country, ISP, currency, etc.)</li>
+      <li><strong>ipify.org</strong> — detects your current public IP address</li>
+      <li><strong>OpenWeatherMap</strong> — current weather for the IP location</li>
+      <li><strong>TimeZoneDB</strong> — timezone information and offset</li>
+      <li><strong>Mapbox</strong> — interactive map visualization</li>
+      <li><strong>FlagCDN</strong> — country flag images</li>
+    </ul>
+
+    <h6>Data presented</h6>
+    <ul class="list-unstyled">
+      <li>📍 IP address, city, country, region</li>
+      <li>🌐 Latitude / Longitude coordinates</li>
+      <li>🏢 ISP / ASN information</li>
+      <li>💱 Currency, population, area, languages</li>
+      <li>🌤️ Current weather (temperature, wind, pressure, humidity)</li>
+      <li>🕐 Timezone with live clock</li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-light btn-sm" (click)="modal.close()">Close</button>
+  </div>
+</ng-template>

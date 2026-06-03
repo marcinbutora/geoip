@@ -20,3 +20,14 @@ nav {
   font-size: 0.85rem;
   font-style: italic;
 }
+
+.nav-link {
+  color: #a0a0b0 !important;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #e94560 !important;
+}
