@@ -12,47 +12,47 @@
 
 <div class="info-grid">
   <div class="info-card">
-    <span class="label">Latitude</span>
+    <span class="label">{{ 'latitude' | translate }}</span>
     <span class="value">{{ data.latitude }}</span>
   </div>
   <div class="info-card">
-    <span class="label">Longitude</span>
+    <span class="label">{{ 'longitude' | translate }}</span>
     <span class="value">{{ data.longitude }}</span>
   </div>
   <div class="info-card" *ngIf="data.region">
-    <span class="label">Region</span>
+    <span class="label">{{ 'region' | translate }}</span>
     <span class="value small-text">{{ regionDisplay }}</span>
   </div>
   <div class="info-card" *ngIf="data.asn">
-    <span class="label">ASN</span>
+    <span class="label">{{ 'asn' | translate }}</span>
     <span class="value small-text">{{ data.asn }}</span>
   </div>
   <div class="info-card" *ngIf="data.org">
-    <span class="label">ISP</span>
+    <span class="label">{{ 'isp' | translate }}</span>
     <span class="value small-text">{{ data.org }}</span>
   </div>
   <div class="info-card">
-    <span class="label">Currency</span>
+    <span class="label">{{ 'currency' | translate }}</span>
     <span class="value">{{ data.currency }} <small>{{ data.currency_name }}</small></span>
   </div>
   <div class="info-card" *ngIf="data.country_population">
-    <span class="label">Population</span>
+    <span class="label">{{ 'population' | translate }}</span>
     <span class="value">{{ formatNumber(data.country_population) }}</span>
   </div>
   <div class="info-card" *ngIf="data.country_area">
-    <span class="label">Area</span>
+    <span class="label">{{ 'area' | translate }}</span>
     <span class="value">{{ formatNumber(data.country_area) }} km²</span>
   </div>
   <div class="info-card" *ngIf="data.languages">
-    <span class="label">Languages</span>
+    <span class="label">{{ 'languages' | translate }}</span>
     <span class="value small-text">{{ data.languages }}</span>
   </div>
   <div class="info-card">
-    <span class="label">Capital</span>
+    <span class="label">{{ 'capital' | translate }}</span>
     <span class="value">{{ data.country_capital }}</span>
   </div>
   <div class="info-card">
-    <span class="label">Postal</span>
+    <span class="label">{{ 'postal' | translate }}</span>
     <span class="value">{{ data.postal }}</span>
   </div>
 </div>

@@ -1,9 +1,9 @@
 <div class="cookie-banner" *ngIf="visible">
   <p class="cookie-text">
-    This site uses cookies for analytics. Do you consent to the use of cookies?
+    {{ 'cookieText' | translate }}
   </p>
   <div class="cookie-actions">
-    <button class="cookie-btn cookie-btn-accept" (click)="accept()">Accept</button>
-    <button class="cookie-btn cookie-btn-reject" (click)="reject()">Reject</button>
+    <button class="cookie-btn cookie-btn-accept" (click)="accept()">{{ 'cookieAccept' | translate }}</button>
+    <button class="cookie-btn cookie-btn-reject" (click)="reject()">{{ 'cookieReject' | translate }}</button>
   </div>
 </div>

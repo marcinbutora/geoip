@@ -1,17 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService } from './shared/translate/translate.service';
+import { Lang } from './shared/translate/translations';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  constructor(private title: Title, private modalService: NgbModal) {}
+export class AppComponent implements OnInit, OnDestroy {
+  currentLang: Lang = 'en';
+  private sub?: Subscription;
+
+  constructor(
+    private title: Title,
+    private modalService: NgbModal,
+    private translate: TranslateService,
+  ) {}
 
   ngOnInit() {
-    this.title.setTitle('GeoIP - localize your IP address on Map!');
+    this.currentLang = this.translate.currentLang;
+    this.sub = this.translate.lang$.subscribe((l) => {
+      this.currentLang = l;
+      this.title.setTitle(this.translate.translate('title'));
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe();
+  }
+
+  toggleLang(): void {
+    this.translate.toggleLang();
   }
 
   openAboutModal(content: unknown): void {

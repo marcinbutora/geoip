@@ -18,6 +18,7 @@ import { DataComponent } from './shared/data/data.component';
 import { CopyButtonComponent } from './shared/copy-button/copy-button.component';
 import { CookieConsentComponent } from './shared/cookie-consent/cookie-consent.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { TranslatePipe } from './shared/translate/translate.pipe';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     DataComponent,
     CopyButtonComponent,
     CookieConsentComponent,
+    TranslatePipe,
   ],
   imports: [
     BrowserModule,
