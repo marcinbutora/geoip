@@ -10,14 +10,13 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-right: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  flex-direction: column;
+  padding: 2rem 1.5rem;
+  overflow-y: auto;
 }
 
 .panel-header {
   text-align: center;
-  padding: 2rem 1.5rem 0;
-  flex-shrink: 0;
+  margin-bottom: 2rem;
 }
 
 .brand-icon {
@@ -34,16 +33,13 @@
 .brand-sub {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.5);
-  margin: 0 0 2rem 0;
+  margin: 0;
 }
 
 .home-form {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  padding: 0 1.5rem;
-  overflow-y: auto;
-  flex: 1;
 }
 
 .input-group {
@@ -144,12 +140,7 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-.panel-footer {
-  padding: 0.75rem 1.5rem 1.5rem;
-  flex-shrink: 0;
-}
-
-.panel-footer .btn-primary-custom {
+.btn-primary-custom {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -165,11 +156,11 @@
   cursor: pointer;
 }
 
-.panel-footer .btn-primary-custom:hover:not(:disabled) {
+.btn-primary-custom:hover:not(:disabled) {
   background: #d63851;
 }
 
-.panel-footer .btn-primary-custom:disabled {
+.btn-primary-custom:disabled {
   opacity: 0.6;
   cursor: default;
 }
@@ -191,24 +182,7 @@
     height: auto;
     border-right: none;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .panel-header {
-    padding: 1.5rem 1rem 0;
-  }
-
-  .brand-sub {
-    margin-bottom: 1.5rem;
-  }
-
-  .home-form {
-    padding: 0 1rem;
-  }
-
-  .panel-footer {
-    padding: 0.75rem 1rem 1.5rem;
-    position: sticky;
-    bottom: 0;
-    background: rgba(15, 12, 41, 0.95);
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
   }
 }
