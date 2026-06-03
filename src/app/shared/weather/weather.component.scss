@@ -1,11 +1,84 @@
-img.icon {
-  width: 1.6rem;
-  height: 0.6rem;
-  object-fit: cover;
+.section-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-p {
-  margin: 0;
-  padding: 0;
+.section-title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.weather-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.weather-temps {
+  display: flex;
+  flex-direction: column;
+}
+
+.temp {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.feels {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.weather-desc {
   font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: capitalize;
+  margin-left: auto;
+}
+
+.weather-details {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
+.detail {
+  flex: 1;
+}
+
+.detail-label {
+  display: block;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.5px;
+}
+
+.detail-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.weather-sun {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
 }

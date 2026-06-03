@@ -16,7 +16,8 @@ import { WeatherComponent } from './shared/weather/weather.component';
 import { TimezoneComponent } from './shared/timezone/timezone.component';
 import { DataComponent } from './shared/data/data.component';
 import { CopyButtonComponent } from './shared/copy-button/copy-button.component';
-import { IpModule } from './pages/ip/ip.module';
+import { CookieConsentComponent } from './shared/cookie-consent/cookie-consent.component';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { IpModule } from './pages/ip/ip.module';
     TimezoneComponent,
     DataComponent,
     CopyButtonComponent,
+    CookieConsentComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,7 @@ import { IpModule } from './pages/ip/ip.module';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     NgbModule,
-    IpModule,
+    ClipboardModule,
   ],
   providers: [Title],
   bootstrap: [AppComponent],

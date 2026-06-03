@@ -1,16 +1,23 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-
 export const environment = {
-  production: true,
+  production: false,
+  api: {
+    ipApi: {
+      url: 'https://ipapi.co/',
+      key: 'UwGCO4DZPD66kaS7nsXoC8mZEeeGP9AKjDgJGNOkREjmj3cMOO',
+    },
+    ipClient: 'https://api.ipify.org/?format=json',
+    weather: {
+      url: 'https://api.openweathermap.org/data/2.5/weather?',
+      key: '8d1da24a8faf953ff79f47841b4e5fef',
+    },
+    timeZone: {
+      url: 'https://api.timezonedb.com/v2.1/get-time-zone',
+      key: 'XHNH1YD4XKP2',
+    },
+    mapbox: {
+      token: 'pk.eyJ1IjoibWI4M3BsIiwiYSI6ImNrenU2dmZqYzFhbmgybm9odWR3MW1zbGEifQ.FkK9NeB26U89mDa1q_DQkQ',
+      style: 'mapbox://styles/mapbox/streets-v11',
+    },
+  },
+  gaId: 'G-9Y0BBKLVQY',
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

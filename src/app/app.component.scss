@@ -1,20 +1,22 @@
-body {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-
 nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(161, 190, 14, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-nav > a {
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  font-size: 1.2rem;
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #e94560 !important;
+}
+
+.navbar-text {
+  color: #a0a0b0 !important;
+  font-size: 0.85rem;
   font-style: italic;
-  color: #000;
 }

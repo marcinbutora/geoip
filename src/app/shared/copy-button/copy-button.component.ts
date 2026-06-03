@@ -9,12 +9,13 @@ import { IP } from 'src/app/pages/ip/ip-model/ip';
 })
 export class CopyButtonComponent {
   @Input() data!: IP;
-  isCopied: boolean = false;
+  isCopied = false;
 
-  constructor(private service: Clipboard) {}
+  constructor(private clipboard: Clipboard) {}
 
-  copyToClipboard = (text: string) => {
-    this.service.copy(text);
+  copyToClipboard(text: string): void {
+    this.clipboard.copy(text);
     this.isCopied = true;
-  };
+    setTimeout(() => (this.isCopied = false), 2000);
+  }
 }

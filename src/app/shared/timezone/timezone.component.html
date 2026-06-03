@@ -1,4 +1,18 @@
-<p>
-  <b>Local date and time:</b>
-  {{ timezone?.formatted | date: "dd.MM.YYYY hh:mm a" }}
-</p>
+<div class="section-card" *ngIf="timezone">
+  <div class="section-title">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10"/>
+      <polyline points="12 6 12 12 16 14"/>
+    </svg>
+    Timezone
+  </div>
+  <div class="tz-main">
+    <span class="tz-time">{{ currentTime }}</span>
+    <span class="tz-date">{{ currentDate }}</span>
+  </div>
+  <div class="tz-meta">
+    <span class="tz-zone">{{ timezone.zoneName }}</span>
+    <span class="tz-abbr">{{ timezone.abbreviation }}</span>
+    <span class="tz-gmt" *ngIf="timezone.gmtOffset != null">GMT {{ timezone.gmtOffset >= 0 ? '+' : '' }}{{ timezone.gmtOffset / 3600 }}</span>
+  </div>
+</div>

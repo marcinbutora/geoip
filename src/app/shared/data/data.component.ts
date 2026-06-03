@@ -9,10 +9,27 @@ import { IP } from 'src/app/pages/ip/ip-model/ip';
 export class DataComponent {
   @Input() data!: IP;
 
-  getFlagSourceUrl = (flagFileUrl: string) => {
-    const flagFile = this.data.country_tld.replace('.', '');
-    return flagFileUrl == 'uk'
-      ? `https://flagcdn.com/40x30/gb.png`
-      : `https://flagcdn.com/40x30/${flagFile}.png`;
-  };
+  getFlagUrl(): string {
+    const code = this.data.country_tld.replace('.', '');
+    const cc = code === 'uk' ? 'gb' : code;
+    return `https://flagcdn.com/w320/${cc}.png`;
+  }
+
+  get continent(): string {
+    const names: Record<string, string> = {
+      AF: 'Africa', AS: 'Asia', EU: 'Europe', NA: 'North America',
+      SA: 'South America', OC: 'Oceania', AN: 'Antarctica',
+    };
+    return names[this.data.continent_code] || this.data.continent_code;
+  }
+
+  formatNumber(n: number): string {
+    return n.toLocaleString('en-US');
+  }
+
+  get regionDisplay(): string {
+    return this.data.region
+      ? `${this.data.region}${this.data.region_code ? ` (${this.data.region_code})` : ''}`
+      : '';
+  }
 }

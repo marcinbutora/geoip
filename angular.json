@@ -30,6 +30,9 @@
               "src/favicon.ico",
               "src/assets"
             ],
+            "allowedCommonJsDependencies": [
+              "mapbox-gl"
+            ],
             "styles": [
               "src/styles.scss"
             ],
@@ -136,7 +139,6 @@
       }
     }
   },
-  "defaultProject": "geoip",
   "cli": {
     "analytics": false
   }

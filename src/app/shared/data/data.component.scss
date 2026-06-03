@@ -1,23 +1,90 @@
-img.flag {
-  padding-right: 0.25rem;
-  width: 3rem;
-  float: left;
-}
-
-h6 {
-  font-weight: normal;
-}
-
-h4 {
+.flag-wrapper {
   text-align: center;
+  margin-bottom: 1rem;
 }
 
-.city {
+.flag {
+  width: 160px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.ip-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.ip-address {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #e94560;
+  letter-spacing: 0.5px;
+}
+
+.location {
   text-align: center;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-p {
-  margin: 0;
-  padding: 0;
+.sub-location {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.info-card .label {
+  display: block;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.2rem;
+}
+
+.info-card .value {
+  display: block;
   font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.info-card .value small {
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.info-card .small-text {
+  font-size: 0.8rem;
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .flag {
+    width: 120px;
+  }
+  .ip-address {
+    font-size: 1.1rem;
+  }
 }

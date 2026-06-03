@@ -1,9 +1,11 @@
 <div id="map" class="full"></div>
-<div class="card ip-card">
+<div class="info-panel">
   <app-spinner [isLoading]="isLoading"></app-spinner>
-  <div class="card-body" *ngIf="!isLoading">
+  <div *ngIf="!isLoading" class="panel-content">
     <app-data [data]="data"></app-data>
-    <app-weather [weather]="weatherData"></app-weather>
-    <app-timezone [timezone]="timezoneData"></app-timezone>
+    <div class="extra-sections">
+      <app-weather [weather]="weatherData"></app-weather>
+      <app-timezone [timezone]="timezoneData"></app-timezone>
+    </div>
   </div>
 </div>

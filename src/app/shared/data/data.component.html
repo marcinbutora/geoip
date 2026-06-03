@@ -1,21 +1,58 @@
-<h4 class="card-title">
-  <img
-    class="float-left mx-auto flag"
-    [src]="getFlagSourceUrl(data.country_tld)"
-    alt="Flag"
-  />
-  {{ data.ip }}
+<div class="flag-wrapper">
+  <img [src]="getFlagUrl()" alt="Flag" class="flag" />
+</div>
+
+<div class="ip-row">
+  <span class="ip-address">{{ data.ip }}</span>
   <app-copy-button [data]="data"></app-copy-button>
-</h4>
-<p class="city">
-  <small
-    >{{ data.city }} ({{ data.country_name }}, {{ data.country }}),
-    <b>capital:</b>
-    {{ data.country_capital }}
-  </small>
-</p>
-<p class="card-text">
-  <b>Currency:</b> {{ data.currency }} ({{ data.currency_name }})<br />
-  <span *ngIf="data.org"><b>ISP Provider:</b> {{ data.org }}<br /></span>
-  <b>Latitude:</b> {{ data.latitude }} <b>Longitude:</b> {{ data.longitude }}
-</p>
+</div>
+
+<div class="location">{{ data.city }}, {{ data.country_name }}</div>
+<div class="sub-location">{{ data.country }} &middot; {{ continent }}</div>
+
+<div class="info-grid">
+  <div class="info-card">
+    <span class="label">Latitude</span>
+    <span class="value">{{ data.latitude }}</span>
+  </div>
+  <div class="info-card">
+    <span class="label">Longitude</span>
+    <span class="value">{{ data.longitude }}</span>
+  </div>
+  <div class="info-card" *ngIf="data.region">
+    <span class="label">Region</span>
+    <span class="value small-text">{{ regionDisplay }}</span>
+  </div>
+  <div class="info-card" *ngIf="data.asn">
+    <span class="label">ASN</span>
+    <span class="value small-text">{{ data.asn }}</span>
+  </div>
+  <div class="info-card" *ngIf="data.org">
+    <span class="label">ISP</span>
+    <span class="value small-text">{{ data.org }}</span>
+  </div>
+  <div class="info-card">
+    <span class="label">Currency</span>
+    <span class="value">{{ data.currency }} <small>{{ data.currency_name }}</small></span>
+  </div>
+  <div class="info-card" *ngIf="data.country_population">
+    <span class="label">Population</span>
+    <span class="value">{{ formatNumber(data.country_population) }}</span>
+  </div>
+  <div class="info-card" *ngIf="data.country_area">
+    <span class="label">Area</span>
+    <span class="value">{{ formatNumber(data.country_area) }} km²</span>
+  </div>
+  <div class="info-card" *ngIf="data.languages">
+    <span class="label">Languages</span>
+    <span class="value small-text">{{ data.languages }}</span>
+  </div>
+  <div class="info-card">
+    <span class="label">Capital</span>
+    <span class="value">{{ data.country_capital }}</span>
+  </div>
+  <div class="info-card">
+    <span class="label">Postal</span>
+    <span class="value">{{ data.postal }}</span>
+  </div>
+</div>

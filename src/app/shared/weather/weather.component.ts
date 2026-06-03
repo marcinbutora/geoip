@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import * as moment from 'moment';
 import { IpWeather } from 'src/app/pages/ip/ip-model/ipweather';
 
 @Component({
@@ -10,14 +9,21 @@ import { IpWeather } from 'src/app/pages/ip/ip-model/ipweather';
 export class WeatherComponent {
   @Input() weather!: IpWeather;
 
-  getWeatherIcon = () => {
-    const weatherIconFile = this.weather?.weather?.[0]?.icon;
-    return `https://openweathermap.org/img/w/${weatherIconFile}.png`;
-  };
+  get iconUrl(): string {
+    const icon = this.weather?.weather?.[0]?.icon;
+    return `https://openweathermap.org/img/w/${icon}.png`;
+  }
 
-  convert = (dateString: string, offset: number) => 
-    moment
-      .utc(dateString, 'X')
-      .add(offset, 'seconds')
-      .format('hh:mm a');
+  get description(): string {
+    return this.weather?.weather?.[0]?.description || '';
+  }
+
+  convert(unixTimestamp: number, offset: number): string {
+    const date = new Date((unixTimestamp + offset) * 1000);
+    return date.toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true,
+    });
+  }
 }

@@ -12,7 +12,7 @@ export const enum RoutesLinks {
 const routes: Routes = [
   { path: RoutesLinks.ipGetData, component: IpInfoComponent },
   { path: RoutesLinks.empty, component: HomeComponent },
-  { path: '**', redirectTo: RoutesLinks.ip },
+  { path: '**', redirectTo: RoutesLinks.empty },
 ];
 
 @NgModule({
