@@ -37,9 +37,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     gsap.from('.home-panel', { x: -60, opacity: 0, duration: 0.6, ease: 'power2.out' });
     gsap.from('.panel-header', { y: -20, opacity: 0, duration: 0.5, delay: 0.3, ease: 'back.out(1.5)' });
-    gsap.from('.home-form > *', {
-      y: 20, opacity: 0, duration: 0.4, stagger: 0.08, delay: 0.5, ease: 'power2.out',
-    });
   }
 
   ngOnInit(): void {
@@ -82,7 +79,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     const map = this.mapService.displayMap(data);
     this.mapService.addMarkerToMap(data, map);
     this.syncPadding();
-    gsap.from('.city-badge, .coord-grid, .btn-primary-custom', {
+    gsap.from('.city-badge, .coord-grid', {
       y: 16, opacity: 0, duration: 0.4, stagger: 0.1, ease: 'power2.out',
     });
   }
