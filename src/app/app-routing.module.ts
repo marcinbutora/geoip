@@ -4,7 +4,7 @@ import { IpInfoComponent } from './pages/ip/ip-info/ip-info.component';
 import { HomeComponent } from './layout/home/home.component';
 
 export const enum RoutesLinks {
-  ipGetData = 'ip/:ip/:lat/:lon',
+  ipGetData = 'ip/:ip/:city/:country',
   empty = '',
   ip = 'ip',
 }

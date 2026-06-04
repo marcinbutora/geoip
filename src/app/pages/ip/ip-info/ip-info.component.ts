@@ -7,7 +7,7 @@ import { IpWeather } from '../ip-model/ipweather';
 import { IpTimeZone } from '../ip-model/iptimezone';
 import { MapService } from 'src/app/shared/map/map.service';
 import { forkJoin, of, fromEvent, Subscription } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, switchMap } from 'rxjs/operators';
 import { gsap } from 'gsap';
 
 @Component({
@@ -40,24 +40,36 @@ export class IpInfoComponent implements OnInit, OnDestroy, AfterViewInit {
     this.resizeSub = fromEvent(window, 'resize').subscribe(() => this.syncPadding());
 
     const ip = this.route.snapshot.params['ip'];
-    const lat = parseFloat(this.route.snapshot.params['lat']);
-    const lon = parseFloat(this.route.snapshot.params['lon']);
 
-    if (!ip || isNaN(lat) || isNaN(lon)) {
+    if (!ip) {
       return;
     }
 
     this.isLoading = true;
 
-    forkJoin({
-      ipData: this.ipService.getDataByIP(ip),
-      weather: this.ipService.getWeatherByLatAndLon(lat, lon).pipe(
-        catchError(() => of(undefined))
-      ),
-      timezone: this.ipService.getTimeZoneByLatAndLon(lat, lon).pipe(
-        catchError(() => of(undefined))
-      ),
-    }).subscribe(({ ipData, weather, timezone }) => {
+    this.ipService.getDataByIP(ip).pipe(
+      catchError(() => {
+        this.isLoading = false;
+        return of(undefined);
+      }),
+      switchMap((ipData) => {
+        if (!ipData) {
+          return of({ ipData: undefined, weather: undefined, timezone: undefined });
+        }
+        return forkJoin({
+          ipData: of(ipData),
+          weather: this.ipService.getWeatherByLatAndLon(ipData.latitude, ipData.longitude).pipe(
+            catchError(() => of(undefined))
+          ),
+          timezone: this.ipService.getTimeZoneByLatAndLon(ipData.latitude, ipData.longitude).pipe(
+            catchError(() => of(undefined))
+          ),
+        });
+      })
+    ).subscribe(({ ipData, weather, timezone }) => {
+      if (!ipData) {
+        return;
+      }
       this.data = ipData;
       this.weatherData = weather as IpWeather;
       this.timezoneData = timezone as IpTimeZone;

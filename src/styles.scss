@@ -59,6 +59,21 @@ body {
   opacity: 0.6;
 }
 
+@media (max-width: 576px) {
+  .modal-dialog {
+    margin: 0.5rem;
+    max-width: none;
+  }
+
+  .modal-body {
+    padding: 1rem;
+  }
+
+  .modal-body li {
+    font-size: 0.83rem;
+  }
+}
+
 @media (max-width: 768px) {
   body {
     overflow: auto;

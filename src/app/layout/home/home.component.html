@@ -60,5 +60,19 @@
       </svg>
       {{ 'showOnMap' | translate }}
     </button>
+
+    <div *ngIf="recent.length" class="recent-section">
+      <h6 class="recent-title">{{ 'recentTitle' | translate }}</h6>
+      <ul class="recent-list">
+        <li *ngFor="let r of recent" class="recent-item" (click)="goToRecent(r)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <span class="recent-ip">{{ r.ip }}</span>
+          <span class="recent-loc">{{ r.city }}, {{ r.country }}</span>
+          <button type="button" class="recent-remove" (click)="removeRecent(r.ip, $event)" title="Remove">✕</button>
+        </li>
+      </ul>
+    </div>
   </form>
 </div>

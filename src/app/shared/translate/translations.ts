@@ -9,7 +9,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     ipPlaceholder: 'Enter IP address...',
     latitude: 'Latitude',
     longitude: 'Longitude',
-    showOnMap: 'Show on map',
+    showOnMap: 'Show more details',
     noLocation: 'No location data for',
     enterValidIp: 'Please enter a valid IP address',
     errorMsg: 'Please enter a valid IP address',
@@ -47,6 +47,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     close: 'Close',
     detectIp: 'Detect my IP',
     copied: 'Copied',
+    recentTitle: 'Recent searches',
   },
   pl: {
     navSubtitle: 'zlokalizuj swój adres IP na mapie!',
@@ -56,7 +57,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     ipPlaceholder: 'Wpisz adres IP...',
     latitude: 'Szerokość',
     longitude: 'Długość',
-    showOnMap: 'Pokaż na mapie',
+    showOnMap: 'Pokaż więcej szczegółów',
     noLocation: 'Brak danych lokalizacji dla',
     enterValidIp: 'Wpisz poprawny adres IP',
     errorMsg: 'Wpisz poprawny adres IP',
@@ -94,5 +95,6 @@ export const translations: Record<Lang, Record<string, string>> = {
     close: 'Zamknij',
     detectIp: 'Wykryj moje IP',
     copied: 'Skopiowano',
+    recentTitle: 'Ostatnio sprawdzane',
   },
 };

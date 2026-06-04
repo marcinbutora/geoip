@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { IpDataService } from 'src/app/pages/ip/ip-data.service';
 import { MapService } from 'src/app/shared/map/map.service';
 import { IP } from 'src/app/pages/ip/ip-model/ip';
+import { RecentSearch, RecentService } from 'src/app/shared/recent/recent.service';
 import { fromEvent, Subscription } from 'rxjs';
 import { gsap } from 'gsap';
 
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   city = '';
   country = '';
   hasSearched = false;
+  recent: RecentSearch[] = [];
 
   ipForm = new FormGroup({
     ip: new FormControl('', Validators.required),
@@ -31,7 +33,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     private router: Router,
     private service: IpDataService,
-    private mapService: MapService
+    private mapService: MapService,
+    private recentService: RecentService
   ) {}
 
   ngAfterViewInit(): void {
@@ -40,6 +43,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.recent = this.recentService.getRecent();
     this.resizeSub = fromEvent(window, 'resize').subscribe(() => this.syncPadding());
     this.service.getClientIP().subscribe((val) => {
       this.ipGetAndChange(val.ip);
@@ -63,8 +67,27 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   onCheck(): void {
     this.router.navigate([
-      `/ip/${this.ipAddressGetFromApi}/${this.latitude}/${this.longitude}`,
+      `/ip/${this.ipAddressGetFromApi}/${this.slugify(this.city)}/${this.slugify(this.country)}`,
     ]);
+  }
+
+  private slugify(text: string): string {
+    return text
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9-]/g, '');
+  }
+
+  goToRecent(r: RecentSearch): void {
+    this.router.navigate([
+      `/ip/${r.ip}/${this.slugify(r.city)}/${this.slugify(r.country)}`,
+    ]);
+  }
+
+  removeRecent(ip: string, event: Event): void {
+    event.stopPropagation();
+    this.recentService.removeSearch(ip);
+    this.recent = this.recentService.getRecent();
   }
 
   isFormNotValid(): boolean {
@@ -76,6 +99,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     this.longitude = data.longitude;
     this.city = data.city;
     this.country = data.country;
+    this.recentService.addSearch(data.ip, data.city, data.country);
+    this.recent = this.recentService.getRecent();
     const map = this.mapService.displayMap(data);
     this.mapService.addMarkerToMap(data, map);
     this.syncPadding();
