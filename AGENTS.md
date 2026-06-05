@@ -60,6 +60,22 @@ API keys for ipapi.co, OpenWeatherMap, TimeZoneDB, and Mapbox are hardcoded in b
 - `mapbox-gl` is listed in `allowedCommonJsDependencies` — it's a CJS module that Angular must handle
 - Bootstrap 5 via ng-bootstrap, Angular Material (purple-green theme), Leaflet
 - GSAP for animations, moment.js for dates
+- `@angular/service-worker` for PWA support (`ngsw-config.json` configures caching)
+- `@angular/cdk/clipboard` for the copy/share button
+
+### Theme system
+
+- Dark/light theme toggle via `ThemeService` (`shared/theme/theme.service.ts`)
+- Persisted in localStorage under `geoip-theme`
+- CSS custom properties defined in `styles.scss` using `[data-theme="dark"]` / `[data-theme="light"]` selectors
+- All component SCSS uses `var(--*)` for colors
+
+### PWA
+
+- Manifest: `src/manifest.webmanifest` (customize name, colors, icons there)
+- Service worker config: `ngsw-config.json`
+- Only enabled in production builds (`ng build --optimization`)
+- Notification toast (`app-notification`) for API errors, auto-dismisses after 5s
 
 ## Testing
 
