@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +20,7 @@ import { CookieConsentComponent } from './shared/cookie-consent/cookie-consent.c
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { TranslatePipe } from './shared/translate/translate.pipe';
 import { NotificationComponent } from './shared/notification/notification.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,12 @@ import { NotificationComponent } from './shared/notification/notification.compon
     ReactiveFormsModule,
     NgbModule,
     ClipboardModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [Title],
   bootstrap: [AppComponent],
