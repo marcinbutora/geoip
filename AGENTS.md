@@ -11,14 +11,16 @@ npm run e2e        # E2E tests (Nightwatch + Cucumber, Chrome)
 
 ## Setup & install
 
-**Always use `npm install`** — there is no lockfile regeneration command. The `.npmrc` sets `legacy-peer-deps=true`, which is **required** because `@angular/material@14.x` and `@angular/cdk@14.x` have peer dependency mismatches with Angular 16.x.
+- **Always use `npm install`** — there is no lockfile regeneration command.
+- `.npmrc` sets `legacy-peer-deps=true` (keep it).
+- Node version is pinned via `.nvmrc` (currently `18`). Netlify reads this file automatically.
 
 ## Architecture
 
-- Single-project Angular 16.2 CLI workspace (NgModule-based, **not standalone**)
+- Single-project Angular 17.3 CLI workspace (NgModule-based, **not standalone**)
 - Source root: `src/`, output: `dist/geoip/`
 - Styles: **SCSS only** (inline style language is SCSS in angular.json)
-- TypeScript 4.9.5, strict mode enabled (strict templates, strict injection, strict null checks)
+- TypeScript 5.4.5, strict mode enabled (strict templates, strict injection, strict null checks)
 - Prefix for generated components: `app`
 - The app is a GeoIP lookup tool that queries external APIs
 
@@ -61,7 +63,7 @@ API keys for ipapi.co, OpenWeatherMap, TimeZoneDB, and Mapbox are hardcoded in b
 
 ## Testing
 
-- **Unit tests**: `npm test` (Karma + Jasmine, Chrome). Test entry: `src/test.ts`. Config: `karma.conf.js`.
+- **Unit tests**: `npm test` (Karma + Jasmine, Chrome). Test entries are specified via `include` in `angular.json` (not `require.context`, since the Karma builder uses esbuild).
 - **E2E tests**: `npm run e2e` (Nightwatch with Cucumber runner). Source: `nightwatch/src/`, compiled to `out-tsc/nightwatch/`. Feature files: `tests/*.feature`.
 - E2E `src_folders` in nightwatch config points to compiled output (`./out-tsc/nightwatch`), so Nightwatch e2e requires a prior TypeScript compilation step.
 - Nightwatch `test_runner.type` is `cucumber`, not the default Nightwatch test runner.
