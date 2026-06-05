@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "geoip:build:production"
+              "buildTarget": "geoip:build:production"
             },
             "development": {
-              "browserTarget": "geoip:build:development"
+              "buildTarget": "geoip:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "geoip:build"
+            "buildTarget": "geoip:build"
           }
         },
         "test": {
