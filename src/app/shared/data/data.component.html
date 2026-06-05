@@ -5,6 +5,13 @@
 <div class="ip-row">
   <span class="ip-address">{{ data.ip }}</span>
   <app-copy-button [data]="data"></app-copy-button>
+  <button type="button" class="share-btn" (click)="copyLink()" [title]="'shareLink' | translate">
+    <svg *ngIf="!linkCopied" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+    </svg>
+    <span *ngIf="linkCopied" class="copied-text">{{ 'copied' | translate }}</span>
+  </button>
 </div>
 
 <div class="location">{{ data.city }}, {{ data.country_name }}</div>
@@ -30,6 +37,14 @@
   <div class="info-card" *ngIf="data.org">
     <span class="label">{{ 'isp' | translate }}</span>
     <span class="value small-text">{{ data.org }}</span>
+  </div>
+  <div class="info-card" *ngIf="data.proxy !== undefined">
+    <span class="label">{{ 'proxy' | translate }}</span>
+    <span class="value"><span class="badge-tag" [class.badge-yes]="data.proxy" [class.badge-no]="!data.proxy">{{ proxyDisplay }}</span></span>
+  </div>
+  <div class="info-card" *ngIf="data.hosting !== undefined">
+    <span class="label">{{ 'hosting' | translate }}</span>
+    <span class="value"><span class="badge-tag" [class.badge-yes]="data.hosting" [class.badge-no]="!data.hosting">{{ hostingDisplay }}</span></span>
   </div>
   <div class="info-card">
     <span class="label">{{ 'currency' | translate }}</span>

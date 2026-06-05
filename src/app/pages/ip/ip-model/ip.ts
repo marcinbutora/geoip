@@ -25,4 +25,6 @@ export interface IP {
   country_population: number;
   asn: string;
   org: string;
+  proxy?: boolean;
+  hosting?: boolean;
 }

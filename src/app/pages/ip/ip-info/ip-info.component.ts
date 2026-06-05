@@ -6,8 +6,9 @@ import { Meta, Title } from '@angular/platform-browser';
 import { IpWeather } from '../ip-model/ipweather';
 import { IpTimeZone } from '../ip-model/iptimezone';
 import { MapService } from 'src/app/shared/map/map.service';
+import { NotificationService } from 'src/app/shared/notification/notification.service';
 import { forkJoin, of, fromEvent, Subscription } from 'rxjs';
-import { catchError, switchMap } from 'rxjs/operators';
+import { catchError, switchMap, tap } from 'rxjs/operators';
 import { gsap } from 'gsap';
 
 @Component({
@@ -24,12 +25,15 @@ export class IpInfoComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private resizeSub?: Subscription;
 
+  errorMessage: string | null = null;
+
   constructor(
     private ipService: IpDataService,
     private mapService: MapService,
     private route: ActivatedRoute,
     private title: Title,
-    private metaService: Meta
+    private metaService: Meta,
+    private notification: NotificationService
   ) {}
 
   ngAfterViewInit(): void {
@@ -50,6 +54,8 @@ export class IpInfoComponent implements OnInit, OnDestroy, AfterViewInit {
     this.ipService.getDataByIP(ip).pipe(
       catchError(() => {
         this.isLoading = false;
+        this.errorMessage = 'errorIpLookup';
+        this.notification.show('errorIpLookup');
         return of(undefined);
       }),
       switchMap((ipData) => {

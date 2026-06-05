@@ -5,7 +5,9 @@ import { IpDataService } from 'src/app/pages/ip/ip-data.service';
 import { MapService } from 'src/app/shared/map/map.service';
 import { IP } from 'src/app/pages/ip/ip-model/ip';
 import { RecentSearch, RecentService } from 'src/app/shared/recent/recent.service';
-import { fromEvent, Subscription } from 'rxjs';
+import { NotificationService } from 'src/app/shared/notification/notification.service';
+import { fromEvent, Subscription, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { gsap } from 'gsap';
 
 @Component({
@@ -20,6 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   city = '';
   country = '';
   hasSearched = false;
+  errorMessage: string | null = null;
   recent: RecentSearch[] = [];
 
   ipForm = new FormGroup({
@@ -34,7 +37,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     private router: Router,
     private service: IpDataService,
     private mapService: MapService,
-    private recentService: RecentService
+    private recentService: RecentService,
+    private notification: NotificationService
   ) {}
 
   ngAfterViewInit(): void {
@@ -111,14 +115,29 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ipGetAndChange(ip: string): void {
     this.hasSearched = true;
+    this.errorMessage = null;
     this.ipAddressGetFromApi = ip;
     this.ipForm.patchValue({ ip });
-    this.service.getDataByIP(ip).subscribe((val) => this.updateData(val));
+    this.service.getDataByIP(ip).pipe(
+      catchError(() => {
+        this.errorMessage = 'errorIpLookup';
+        this.notification.show('errorIpLookup');
+        return of(undefined);
+      })
+    ).subscribe((val) => {
+      if (val) this.updateData(val);
+    });
   }
 
   getMyIP(): void {
-    this.service.getClientIP().subscribe((val) => {
-      this.ipGetAndChange(val.ip);
+    this.service.getClientIP().pipe(
+      catchError(() => {
+        this.errorMessage = 'errorGeneral';
+        this.notification.show('errorGeneral');
+        return of(undefined);
+      })
+    ).subscribe((val) => {
+      if (val) this.ipGetAndChange(val.ip);
     });
   }
 

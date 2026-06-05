@@ -1,6 +1,64 @@
 @import "bootstrap/scss/bootstrap";
 @import "mapbox-gl/dist/mapbox-gl.css";
 
+:root, [data-theme="dark"] {
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --bg-glass: rgba(15, 12, 41, 0.6);
+  --text-primary: #e0e0e0;
+  --text-secondary: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.5);
+  --text-muted-more: rgba(255, 255, 255, 0.35);
+  --accent: #e94560;
+  --accent-hover: #d63851;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.06);
+  --card-border-strong: rgba(255, 255, 255, 0.12);
+  --input-bg: rgba(255, 255, 255, 0.08);
+  --input-border: rgba(255, 255, 255, 0.12);
+  --input-text: #ffffff;
+  --input-placeholder: rgba(255, 255, 255, 0.35);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --accent-bg: rgba(233, 69, 96, 0.15);
+  --accent-border: rgba(233, 69, 96, 0.3);
+  --alert-bg: rgba(233, 69, 96, 0.1);
+  --alert-border: rgba(233, 69, 96, 0.2);
+  --navbar-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  --modal-bg: #1a1a2e;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --flag-shadow: rgba(0, 0, 0, 0.4);
+  --section-title: rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="light"] {
+  --bg-primary: #f0f2f5;
+  --bg-secondary: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --text-primary: #2c2c2c;
+  --text-secondary: #1a1a1a;
+  --text-muted: rgba(0, 0, 0, 0.5);
+  --text-muted-more: rgba(0, 0, 0, 0.35);
+  --accent: #d6336c;
+  --accent-hover: #c0275f;
+  --card-bg: rgba(0, 0, 0, 0.03);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-border-strong: rgba(0, 0, 0, 0.15);
+  --input-bg: rgba(0, 0, 0, 0.04);
+  --input-border: rgba(0, 0, 0, 0.15);
+  --input-text: #1a1a1a;
+  --input-placeholder: rgba(0, 0, 0, 0.35);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --accent-bg: rgba(214, 51, 108, 0.1);
+  --accent-border: rgba(214, 51, 108, 0.25);
+  --alert-bg: rgba(214, 51, 108, 0.08);
+  --alert-border: rgba(214, 51, 108, 0.18);
+  --navbar-gradient: linear-gradient(135deg, #e8e8ec 0%, #f5f5f5 100%);
+  --modal-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --flag-shadow: rgba(0, 0, 0, 0.15);
+  --section-title: rgba(0, 0, 0, 0.4);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +69,8 @@ body {
   overflow: hidden;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   height: 100%;
-  background-color: #1a1a2e;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .full {
@@ -20,26 +79,26 @@ body {
 }
 
 .modal-content {
-  background: #1a1a2e;
-  color: #e0e0e0;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--modal-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
 }
 
 .modal-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .modal-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-color);
 }
 
 .modal-title {
-  color: #e94560;
+  color: var(--accent);
   font-weight: 700;
 }
 
 .modal-body h6 {
-  color: #e94560;
+  color: var(--accent);
   margin-top: 1rem;
   font-weight: 600;
 }
@@ -51,7 +110,7 @@ body {
 
 .modal-body li::before {
   content: "›";
-  color: #e94560;
+  color: var(--accent);
   margin-right: 0.5rem;
 }
 
@@ -78,4 +137,13 @@ body {
   body {
     overflow: auto;
   }
+}
+
+.mapboxgl-ctrl-attrib {
+  color: var(--text-muted);
+  background: var(--bg-glass) !important;
+}
+
+.mapboxgl-ctrl-attrib a {
+  color: var(--accent) !important;
 }

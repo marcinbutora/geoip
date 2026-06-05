@@ -4,9 +4,9 @@
   left: 0;
   right: 0;
   z-index: 9999;
-  background: rgba(15, 12, 41, 0.95);
+  background: var(--bg-glass);
   backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-color);
   padding: 0.75rem 1.5rem;
   display: flex;
   align-items: center;
@@ -17,7 +17,7 @@
 
 .cookie-text {
   margin: 0;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-primary);
   font-size: 0.85rem;
 }
 
@@ -37,19 +37,19 @@
 }
 
 .cookie-btn-accept {
-  background: #e94560;
+  background: var(--accent);
   color: #fff;
 }
 
 .cookie-btn-accept:hover {
-  background: #d63851;
+  background: var(--accent-hover);
 }
 
 .cookie-btn-reject {
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.7);
+  background: var(--input-bg);
+  color: var(--text-muted);
 }
 
 .cookie-btn-reject:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--card-bg);
 }

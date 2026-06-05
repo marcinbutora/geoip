@@ -7,7 +7,7 @@
   width: 160px;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 20px var(--flag-shadow);
 }
 
 .ip-row {
@@ -22,20 +22,20 @@
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.3rem;
   font-weight: 700;
-  color: #e94560;
+  color: var(--accent);
   letter-spacing: 0.5px;
 }
 
 .location {
   text-align: center;
-  color: #fff;
+  color: var(--text-secondary);
   font-size: 1rem;
   font-weight: 500;
 }
 
 .sub-location {
   text-align: center;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
   font-size: 0.8rem;
   margin-bottom: 1rem;
 }
@@ -47,10 +47,10 @@
 }
 
 .info-card {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--card-bg);
   border-radius: 10px;
   padding: 0.6rem 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--card-border);
 }
 
 .info-card .label {
@@ -58,7 +58,7 @@
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-muted-more);
   margin-bottom: 0.2rem;
 }
 
@@ -66,18 +66,62 @@
   display: block;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-secondary);
 }
 
 .info-card .value small {
   font-weight: 400;
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
 }
 
 .info-card .small-text {
   font-size: 0.8rem;
   word-break: break-word;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--input-bg);
+  color: var(--text-muted);
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.share-btn:hover {
+  background: var(--card-bg);
+  color: var(--text-secondary);
+}
+
+.copied-text {
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-tag {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-yes {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.badge-no {
+  background: var(--card-bg);
+  color: var(--text-muted);
 }
 
 @media (max-width: 768px) {

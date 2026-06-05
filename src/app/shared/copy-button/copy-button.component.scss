@@ -2,9 +2,9 @@
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  background: rgba(233, 69, 96, 0.15);
-  color: #e94560;
-  border: 1px solid rgba(233, 69, 96, 0.3);
+  background: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
   border-radius: 6px;
   padding: 0.25rem 0.6rem;
   font-size: 0.75rem;
@@ -13,7 +13,8 @@
 }
 
 .copy-btn:hover:not(:disabled) {
-  background: rgba(233, 69, 96, 0.25);
+  background: var(--accent-bg);
+  filter: brightness(1.2);
 }
 
 .copy-btn:disabled {

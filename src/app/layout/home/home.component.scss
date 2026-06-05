@@ -6,10 +6,10 @@
   width: 380px;
   max-width: 40vw;
   z-index: 900;
-  background: rgba(15, 12, 41, 0.6);
+  background: var(--bg-glass);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid var(--border-color);
   padding: 2rem 1.5rem;
   overflow-y: auto;
 }
@@ -26,13 +26,13 @@
 .brand-title {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #e94560;
+  color: var(--accent);
   margin: 0.25rem 0 0 0;
 }
 
 .brand-sub {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
   margin: 0;
 }
 
@@ -49,29 +49,29 @@
 
 .form-input {
   flex: 1;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
   border-radius: 8px;
   padding: 0.7rem 1rem;
-  color: #fff;
+  color: var(--input-text);
   font-size: 0.95rem;
   outline: none;
   transition: border-color 0.2s;
 }
 
 .form-input::placeholder {
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--input-placeholder);
 }
 
 .form-input:focus {
-  border-color: #e94560;
+  border-color: var(--accent);
 }
 
 .btn-detect {
-  background: rgba(233, 69, 96, 0.15);
-  border: 1px solid rgba(233, 69, 96, 0.3);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
   border-radius: 8px;
-  color: #e94560;
+  color: var(--accent);
   padding: 0.5rem 0.75rem;
   cursor: pointer;
   transition: background 0.2s;
@@ -80,21 +80,22 @@
 }
 
 .btn-detect:hover {
-  background: rgba(233, 69, 96, 0.25);
+  background: var(--accent-bg);
+  filter: brightness(1.2);
 }
 
 .error-msg {
   font-size: 0.8rem;
-  color: #e94560;
+  color: var(--accent);
   margin: 0;
 }
 
 .city-badge {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--input-bg);
   border-radius: 8px;
   padding: 0.5rem 0.75rem;
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
   text-align: center;
 }
 
@@ -105,8 +106,8 @@
 }
 
 .coord-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 10px;
   padding: 0.6rem 0.75rem;
 }
@@ -116,7 +117,7 @@
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-muted-more);
   margin-bottom: 0.2rem;
 }
 
@@ -124,7 +125,7 @@
   display: block;
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-secondary);
   font-family: 'Courier New', Courier, monospace;
 }
 
@@ -132,12 +133,12 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(233, 69, 96, 0.1);
-  border: 1px solid rgba(233, 69, 96, 0.2);
+  background: var(--alert-bg);
+  border: 1px solid var(--alert-border);
   border-radius: 8px;
   padding: 0.6rem 0.75rem;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-muted);
 }
 
 .btn-primary-custom {
@@ -146,8 +147,8 @@
   justify-content: center;
   gap: 0.5rem;
   width: 100%;
-  background: #e94560;
-  border: 1px solid #e94560;
+  background: var(--accent);
+  border: 1px solid var(--accent);
   border-radius: 8px;
   padding: 0.75rem;
   color: #fff;
@@ -157,7 +158,8 @@
 }
 
 .btn-primary-custom:hover:not(:disabled) {
-  background: #d63851;
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
 }
 
 .btn-primary-custom:disabled {
@@ -170,7 +172,7 @@
 }
 
 .recent-title {
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-muted-more);
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.8px;
@@ -190,32 +192,32 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
   padding: 0.45rem 0.65rem;
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
 }
 
 .recent-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.12);
-  color: #e94560;
+  background: var(--card-bg);
+  border-color: var(--card-border-strong);
+  color: var(--accent);
 }
 
 .recent-ip {
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.78rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-secondary);
   flex-shrink: 0;
 }
 
 .recent-loc {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -225,7 +227,7 @@
 .recent-remove {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.25);
+  color: var(--text-muted-more);
   cursor: pointer;
   font-size: 0.7rem;
   padding: 0.2rem;
@@ -235,7 +237,7 @@
 }
 
 .recent-remove:hover {
-  color: #e94560;
+  color: var(--accent);
 }
 
 @media (max-width: 768px) {
@@ -254,7 +256,7 @@
     max-width: 100%;
     height: auto;
     border-right: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid var(--border-color);
     padding: 1.5rem 1rem;
   }
 }

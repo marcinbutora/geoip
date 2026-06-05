@@ -5,8 +5,8 @@ footer {
   right: 0;
   z-index: 1000;
   font-size: 0.8rem;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: #a0a0b0;
+  background: var(--navbar-gradient);
+  color: var(--text-muted);
   padding: 0.4rem 0;
 }
 

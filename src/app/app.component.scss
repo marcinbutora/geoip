@@ -4,9 +4,9 @@ nav {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: var(--navbar-gradient);
   padding: 0.5rem 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 8px var(--shadow);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,41 +15,60 @@ nav {
 .navbar-brand {
   font-weight: 600;
   font-size: 1.3rem;
-  color: #e94560 !important;
+  color: var(--accent) !important;
 }
 
 .navbar-text {
-  color: #a0a0b0 !important;
+  color: var(--text-muted) !important;
   font-size: 0.85rem;
   font-style: italic;
 }
 
 .nav-link {
-  color: #a0a0b0 !important;
+  color: var(--text-muted) !important;
   font-size: 0.85rem;
   cursor: pointer;
   text-decoration: none;
 }
 
 .nav-link:hover {
-  color: #e94560 !important;
+  color: var(--accent) !important;
 }
 
 .btn-lang {
-  background: rgba(233, 69, 96, 0.15);
-  border: 1px solid rgba(233, 69, 96, 0.3);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
   border-radius: 6px;
-  color: #e94560;
+  color: var(--accent);
   padding: 0.25rem 0.6rem;
   font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
-  margin-left: 0.5rem;
+  margin-left: 0.25rem;
   transition: background 0.2s;
 }
 
 .btn-lang:hover {
-  background: rgba(233, 69, 96, 0.25);
+  background: var(--accent-bg);
+  filter: brightness(1.2);
+}
+
+.btn-theme {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border-strong);
+  border-radius: 6px;
+  color: var(--text-muted);
+  padding: 0.3rem 0.45rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.btn-theme:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--accent);
 }
 
 @media (max-width: 576px) {
