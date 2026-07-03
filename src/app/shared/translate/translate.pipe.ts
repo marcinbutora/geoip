@@ -1,4 +1,9 @@
-import { Pipe, PipeTransform, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import {
+  Pipe,
+  PipeTransform,
+  ChangeDetectorRef,
+  OnDestroy,
+} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TranslateService } from './translate.service';
 
