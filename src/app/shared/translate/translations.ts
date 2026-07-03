@@ -31,11 +31,13 @@ export const translations: Record<Lang, Record<string, string>> = {
     sunset: 'Sunset',
     timezone: 'Timezone',
     footerCopyright: 'All rights reserved',
-    cookieText: 'This site uses cookies for analytics. Do you consent to the use of cookies?',
+    cookieText:
+      'This site uses cookies for analytics. Do you consent to the use of cookies?',
     cookieAccept: 'Accept',
     cookieReject: 'Reject',
     aboutTitle: 'About GeoIP',
-    aboutDesc: 'GeoIP is a web application that allows you to localize any IP address on an interactive map and explore detailed information about its geographical location.',
+    aboutDesc:
+      'GeoIP is a web application that allows you to localize any IP address on an interactive map and explore detailed information about its geographical location.',
     aboutServices: 'Services used',
     aboutData: 'Data presented',
     aboutIp: 'IP address, city, country, region',
@@ -88,11 +90,13 @@ export const translations: Record<Lang, Record<string, string>> = {
     sunset: 'Zachód',
     timezone: 'Strefa czasowa',
     footerCopyright: 'Wszelkie prawa zastrzeżone',
-    cookieText: 'Ta strona używa plików cookie do celów analitycznych. Czy wyrażasz zgodę?',
+    cookieText:
+      'Ta strona używa plików cookie do celów analitycznych. Czy wyrażasz zgodę?',
     cookieAccept: 'Akceptuję',
     cookieReject: 'Odrzucam',
     aboutTitle: 'O aplikacji GeoIP',
-    aboutDesc: 'GeoIP to aplikacja webowa, która pozwala zlokalizować dowolny adres IP na interaktywnej mapie i przeglądać szczegółowe informacje o jego położeniu geograficznym.',
+    aboutDesc:
+      'GeoIP to aplikacja webowa, która pozwala zlokalizować dowolny adres IP na interaktywnej mapie i przeglądać szczegółowe informacje o jego położeniu geograficznym.',
     aboutServices: 'Używane usługi',
     aboutData: 'Prezentowane dane',
     aboutIp: 'Adres IP, miasto, kraj, region',
@@ -111,7 +115,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     no: 'Nie',
     shareLink: 'Kopiuj link',
     errorGeneral: 'Coś poszło nie tak. Spróbuj ponownie.',
-    errorIpLookup: 'Nie udało się wczytać danych IP. Sprawdź adres i spróbuj ponownie.',
+    errorIpLookup:
+      'Nie udało się wczytać danych IP. Sprawdź adres i spróbuj ponownie.',
     lightMode: 'Tryb jasny',
     darkMode: 'Tryb ciemny',
   },
